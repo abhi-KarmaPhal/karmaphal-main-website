@@ -1,0 +1,2472 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "i2I1w",
+      "x": 0,
+      "y": 0,
+      "name": "KarmaPhal HomePage",
+      "width": 1440,
+      "fill": "$ink",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Np1dw",
+          "name": "Nav",
+          "width": "fill_container",
+          "height": 100,
+          "fill": "$ink",
+          "padding": [
+            24,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "8TZms",
+              "name": "logoGroup",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5E2IA",
+                  "name": "lk",
+                  "fill": "$white",
+                  "content": "कर्म",
+                  "fontFamily": "$font-devanagari",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "ellipse",
+                  "id": "cCviN",
+                  "name": "ldot",
+                  "fill": "$gold",
+                  "width": 5,
+                  "height": 5
+                },
+                {
+                  "type": "text",
+                  "id": "1e9Je",
+                  "name": "lp",
+                  "fill": "$white",
+                  "content": "PHAL",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 14,
+                  "fontWeight": "900",
+                  "letterSpacing": 0.14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QF1GW",
+              "name": "rightNav",
+              "gap": 40,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "2UEsv",
+                  "name": "servicesLink",
+                  "opacity": 0.3,
+                  "fill": "$white",
+                  "content": "SERVICES",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.3
+                },
+                {
+                  "type": "text",
+                  "id": "pPUGe",
+                  "name": "aboutLink",
+                  "opacity": 0.3,
+                  "fill": "$white",
+                  "content": "ABOUT",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.3
+                },
+                {
+                  "type": "text",
+                  "id": "00Adc",
+                  "name": "contactLink",
+                  "opacity": 0.3,
+                  "fill": "$white",
+                  "content": "CONTACT",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.3
+                },
+                {
+                  "type": "frame",
+                  "id": "zoxl7",
+                  "name": "workLink",
+                  "cornerRadius": 20,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$gold"
+                  },
+                  "padding": [
+                    9,
+                    21
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pBbU3",
+                      "name": "workText",
+                      "fill": "$gold",
+                      "content": "WORK WITH US",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZJzWW",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 900,
+          "fill": "$ink",
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dIIqj",
+              "name": "heroWrap",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V6a1F",
+                  "name": "hpre",
+                  "opacity": 0.4,
+                  "fill": "$gold",
+                  "content": "ARCHITECTURE OF THE INFINITE",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.7
+                },
+                {
+                  "type": "text",
+                  "id": "T1EkD",
+                  "name": "hk",
+                  "fill": "$gold-lt",
+                  "content": "कर्म",
+                  "lineHeight": 0.92,
+                  "fontFamily": "$font-devanagari",
+                  "fontSize": 200
+                },
+                {
+                  "type": "frame",
+                  "id": "DTOQk",
+                  "name": "hsep",
+                  "gap": 40,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "0Qabv",
+                      "name": "hl_l",
+                      "opacity": 0.5,
+                      "width": 112,
+                      "height": 1,
+                      "fill": "$gold"
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "RC9Ew",
+                      "name": "hd_l",
+                      "fill": "$gold",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "text",
+                      "id": "88npK",
+                      "name": "hp",
+                      "fill": "$gold",
+                      "content": "PHAL",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 80,
+                      "fontWeight": "900",
+                      "letterSpacing": 0.55
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "p5sVF",
+                      "name": "hd_r",
+                      "fill": "$gold",
+                      "width": 10,
+                      "height": 10
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cjpQD",
+                      "name": "hl_r",
+                      "opacity": 0.5,
+                      "width": 112,
+                      "height": 1,
+                      "fill": "$gold"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ukMY1",
+                  "name": "hsub",
+                  "opacity": 0.44,
+                  "fill": "$gold",
+                  "content": "BRANDS · WEBSITES · APPS · AI · EVERYTHING DIGITAL",
+                  "fontFamily": "$font-cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.35
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vz6Jd",
+              "name": "hbot",
+              "width": "fill_container",
+              "padding": [
+                0,
+                64,
+                56,
+                64
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "63mA0",
+                  "name": "hbl",
+                  "opacity": 0.45,
+                  "fill": "$white",
+                  "content": "Your private\nin-house digital team.",
+                  "lineHeight": 1.75,
+                  "fontFamily": "$font-cormorant",
+                  "fontSize": 19,
+                  "fontWeight": "300",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "GuWI6",
+                  "name": "hbc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QYT7D",
+                      "name": "sbar",
+                      "opacity": 0.5,
+                      "width": 1,
+                      "height": 64,
+                      "fill": "$gold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3ejbq",
+                      "name": "scrollText",
+                      "opacity": 0.28,
+                      "fill": "$gold",
+                      "content": "SCROLL",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 6,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.45
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UsS04",
+                  "name": "hbr",
+                  "fill": "$gold-dk",
+                  "padding": [
+                    14,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PYXN8",
+                      "name": "btn_g",
+                      "fill": "$ink2",
+                      "content": "BEGIN",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ekHS8",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "mXYq6",
+          "name": "Ticker Dark",
+          "width": "fill_container",
+          "height": 60,
+          "fill": "$ink",
+          "padding": [
+            0,
+            48
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "pK88z",
+              "name": "tickerTextDk",
+              "opacity": 0.26,
+              "fill": "$gold",
+              "content": "PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है · PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·",
+              "fontFamily": "$font-cinzel",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 0.42
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8bI4G",
+          "name": "Manifesto",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$white",
+          "layout": "vertical",
+          "padding": [
+            120,
+            48
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "n6608",
+              "name": "mfGhost",
+              "opacity": 0.04,
+              "fill": "$gold",
+              "content": "फल",
+              "fontFamily": "$font-devanagari",
+              "fontSize": 400,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "BQtKd",
+              "name": "mfIn",
+              "width": 1000,
+              "layout": "vertical",
+              "gap": 60,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fZo4G",
+                  "name": "mfEye",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "sYcSH",
+                      "name": "mfEyeLine",
+                      "opacity": 0.55,
+                      "width": 28,
+                      "height": 1,
+                      "fill": "$gold-dk"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PtqM1",
+                      "name": "mfEyeText",
+                      "opacity": 0.65,
+                      "fill": "$gold-dk",
+                      "content": "THE VISION",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.55
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "05hDk",
+                  "name": "mfLines",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RvawE",
+                      "name": "l0",
+                      "fill": "$ink2",
+                      "content": "Most businesses",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 80,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PItsX",
+                      "name": "l1",
+                      "fill": "$ink2",
+                      "content": "are brilliant",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 80,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "keVCM",
+                      "name": "l2",
+                      "fill": "$ink2",
+                      "content": "at what they do.",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 80,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "0ZjGG",
+                      "name": "l3",
+                      "fill": "$gold-dk",
+                      "content": "Everything else?",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 120,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "8Lfva",
+                      "name": "l4",
+                      "fill": "$gold-dk",
+                      "content": "That's us.",
+                      "fontFamily": "$font-cinzel",
+                      "fontSize": 192,
+                      "fontWeight": "900"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZKrgZ",
+                  "name": "mfSub",
+                  "width": "fill_container",
+                  "gap": 48,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4UQWp",
+                      "name": "mfP",
+                      "opacity": 0.72,
+                      "fill": "$ink2",
+                      "textGrowth": "fixed-width",
+                      "width": 450,
+                      "content": "We are your private in-house digital team — handling every logo, website, banner, pitch deck, app, and AI system. So you can do what you were born to do. Without distraction. Without compromise.",
+                      "lineHeight": 1.95,
+                      "fontFamily": "$font-cormorant",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nv6oA",
+                      "name": "mfLink",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ks2Bz",
+                          "name": "mfLinkText",
+                          "fill": "$gold-dk",
+                          "content": "OUR PHILOSOPHY →",
+                          "fontFamily": "$font-cinzel",
+                          "fontSize": 9,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.42
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rDNkx",
+                          "name": "mfLinkLine",
+                          "opacity": 0.35,
+                          "width": "fill_container",
+                          "height": 1,
+                          "fill": "$gold-dk"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dSDMm",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "3qBtE",
+          "name": "Ticker Light",
+          "width": "fill_container",
+          "height": 60,
+          "fill": "$cream",
+          "padding": [
+            0,
+            48
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "eUOnK",
+              "name": "tickerTextLt",
+              "opacity": 0.42,
+              "fill": "$gold-dk",
+              "content": "ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है · ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·",
+              "fontFamily": "Cinzel",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 0.42
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0XNze",
+          "name": "Metrics",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$ink2",
+          "layout": "vertical",
+          "padding": [
+            120,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "MAP5g",
+              "name": "metHd",
+              "width": "fill_container",
+              "gap": 16,
+              "padding": [
+                0,
+                0,
+                80,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DA9l3",
+                  "name": "metEye",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "mGAQD",
+                      "name": "metEyeLine",
+                      "opacity": 0.4,
+                      "width": 26,
+                      "height": 1,
+                      "fill": "$gold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "h8038",
+                      "name": "metEyeText",
+                      "opacity": 0.38,
+                      "fill": "$gold",
+                      "content": "WHY IT WORKS",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.55
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "oZZyT",
+                  "name": "metTagline",
+                  "opacity": 0.38,
+                  "fill": "$gold-lt",
+                  "content": "Numbers that speak for themselves.",
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 18,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hc4Ty",
+              "name": "metBig",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "$gold"
+              },
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XBzGI",
+                  "name": "mb1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "right": 1,
+                      "bottom": 1
+                    },
+                    "fill": "$gold"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    72,
+                    64
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Q5X2h",
+                      "name": "mb1num",
+                      "fill": "$gold",
+                      "content": "100%",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 150,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.04
+                    },
+                    {
+                      "type": "text",
+                      "id": "s93gM",
+                      "name": "mb1title",
+                      "opacity": 0.88,
+                      "fill": "$white",
+                      "content": "In-House. Always.",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 22,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.07
+                    },
+                    {
+                      "type": "text",
+                      "id": "SYA1R",
+                      "name": "mb1desc",
+                      "opacity": 0.62,
+                      "fill": "$gold-lt",
+                      "textGrowth": "fixed-width",
+                      "width": 340,
+                      "content": "Not outsourced. Not freelancers. Your permanent team — embedded in your brand, accountable to your growth every single day.",
+                      "lineHeight": 1.85,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w2WJC",
+                      "name": "mb1deva",
+                      "opacity": 0.1,
+                      "fill": "$gold",
+                      "content": "एकता",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "en4SI",
+                  "name": "mb2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$gold"
+                  },
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    72,
+                    64
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FgTyV",
+                      "name": "mb2num",
+                      "fill": "$gold",
+                      "content": "24/7",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 150,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.04
+                    },
+                    {
+                      "type": "text",
+                      "id": "DriL3",
+                      "name": "mb2title",
+                      "opacity": 0.88,
+                      "fill": "$white",
+                      "content": "No Office Hours.",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 22,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.07
+                    },
+                    {
+                      "type": "text",
+                      "id": "fApPj",
+                      "name": "mb2desc",
+                      "opacity": 0.62,
+                      "fill": "$gold-lt",
+                      "textGrowth": "fixed-width",
+                      "width": 340,
+                      "content": "Your brand never sleeps and neither do we. A banner at 10pm, a deck by Friday — handled without drama, always on time.",
+                      "lineHeight": 1.85,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "l5wF8",
+                      "name": "mb2deva",
+                      "opacity": 0.1,
+                      "fill": "$gold",
+                      "content": "निरंतर",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jbWoU",
+              "name": "metMini",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "$gold"
+              },
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Oqqrf",
+                  "name": "mm1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "$gold"
+                  },
+                  "gap": 40,
+                  "padding": [
+                    44,
+                    64
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "z9gIM",
+                      "name": "mm1num",
+                      "fill": "$gold",
+                      "content": "04",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 60,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.025
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9LZh1",
+                      "name": "mm1col",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wDOPR",
+                          "name": "mm1title",
+                          "opacity": 0.82,
+                          "fill": "$white",
+                          "content": "Full Disciplines",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 14,
+                          "fontWeight": "700",
+                          "letterSpacing": 0.08
+                        },
+                        {
+                          "type": "text",
+                          "id": "cj5xe",
+                          "name": "mm1desc",
+                          "opacity": 0.5,
+                          "fill": "$gold-lt",
+                          "textGrowth": "fixed-width",
+                          "width": 400,
+                          "content": "Brand · Web · Content · AI. Every digital corner covered under one roof, by one team.",
+                          "lineHeight": 1.72,
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wkHD7",
+                  "name": "mm2",
+                  "width": "fill_container",
+                  "gap": 40,
+                  "padding": [
+                    44,
+                    64
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yElzM",
+                      "name": "mm2num",
+                      "fill": "$gold",
+                      "content": "∞",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 60,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.025
+                    },
+                    {
+                      "type": "frame",
+                      "id": "foq8S",
+                      "name": "mm2col",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "efqJG",
+                          "name": "mm2title",
+                          "opacity": 0.82,
+                          "fill": "$white",
+                          "content": "Unlimited Requests",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 14,
+                          "fontWeight": "700",
+                          "letterSpacing": 0.08
+                        },
+                        {
+                          "type": "text",
+                          "id": "j4eqj",
+                          "name": "mm2desc",
+                          "opacity": 0.5,
+                          "fill": "$gold-lt",
+                          "textGrowth": "fixed-width",
+                          "width": 400,
+                          "content": "One flat retainer. No per-project fees. No scope creep. Just extraordinary work, endlessly.",
+                          "lineHeight": 1.72,
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NQUBU",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "AvOBa",
+          "name": "Services",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$cream",
+          "layout": "vertical",
+          "padding": [
+            120,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "zFi05",
+              "name": "svcHdr",
+              "width": "fill_container",
+              "gap": 32,
+              "padding": [
+                0,
+                80,
+                80,
+                80
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "frHyu",
+                  "name": "svclCol",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "svKU5",
+                      "name": "svcEye",
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qxVCq",
+                          "name": "svcEyeLine",
+                          "opacity": 0.45,
+                          "width": 28,
+                          "height": 1,
+                          "fill": "$gold-dk"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JQQWC",
+                          "name": "svcEyeText",
+                          "opacity": 0.58,
+                          "fill": "$gold-dk",
+                          "content": "WHAT WE HANDLE",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 9,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.55
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "LvcO6",
+                      "name": "svcH",
+                      "fill": "$ink",
+                      "content": "Everything\ndigital.",
+                      "lineHeight": 1.02,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 88,
+                      "fontWeight": "900"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "gQf8I",
+                  "name": "svcCt",
+                  "opacity": 0.4,
+                  "fill": "$gold-dk",
+                  "content": "04 DISCIPLINES",
+                  "fontFamily": "Cinzel",
+                  "fontSize": 8,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ncrzo",
+              "name": "svcList",
+              "width": "fill_container",
+              "stroke": {
+                "thickness": {
+                  "top": 1
+                },
+                "fill": "$ink"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "4npdy",
+                  "name": "si1",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "gap": 32,
+                  "padding": [
+                    32,
+                    80
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cWwke",
+                      "name": "si1n",
+                      "opacity": 0.28,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 72,
+                      "content": "01",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.28
+                    },
+                    {
+                      "type": "text",
+                      "id": "6f0gY",
+                      "name": "si1deva",
+                      "opacity": 0.12,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "ब्रांड",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gflFS",
+                      "name": "si1name",
+                      "opacity": 0.58,
+                      "fill": "$ink",
+                      "content": "Brand Identity",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 30,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.03
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EGY9n",
+                      "name": "si1r",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "66Gfk",
+                          "name": "si1desc",
+                          "opacity": 0.5,
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 300,
+                          "content": "Logos, systems, strategy, packaging — the soul of your business, built to last.",
+                          "textAlign": "right",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        },
+                        {
+                          "type": "text",
+                          "id": "MOgd0",
+                          "name": "si1arr",
+                          "opacity": 0.5,
+                          "fill": "$gold-dk",
+                          "content": "→",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 19,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kXPdV",
+                  "name": "si2",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "gap": 32,
+                  "padding": [
+                    32,
+                    80
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9jfQe",
+                      "name": "si2n",
+                      "opacity": 0.28,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 72,
+                      "content": "02",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.28
+                    },
+                    {
+                      "type": "text",
+                      "id": "Dr88u",
+                      "name": "si2deva",
+                      "opacity": 0.12,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "वेब",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "P5Ee0",
+                      "name": "si2name",
+                      "opacity": 0.58,
+                      "fill": "$ink",
+                      "content": "Websites & Apps",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 30,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.03
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jizqI",
+                      "name": "si2r",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "x8DuS",
+                          "name": "si2desc",
+                          "opacity": 0.5,
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 300,
+                          "content": "Design, development, e-commerce, mobile — your hardest-working salesperson.",
+                          "textAlign": "right",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bIr6h",
+                          "name": "si2arr",
+                          "opacity": 0.5,
+                          "fill": "$gold-dk",
+                          "content": "→",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 19,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tSOIb",
+                  "name": "si3",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "gap": 32,
+                  "padding": [
+                    32,
+                    80
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ADc60",
+                      "name": "si3n",
+                      "opacity": 0.28,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 72,
+                      "content": "03",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.28
+                    },
+                    {
+                      "type": "text",
+                      "id": "QW5na",
+                      "name": "si3deva",
+                      "opacity": 0.12,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "सृजन",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "luoCv",
+                      "name": "si3name",
+                      "opacity": 0.58,
+                      "fill": "$ink",
+                      "content": "Creative Content",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 30,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.03
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FmY0u",
+                      "name": "si3r",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6F7Le",
+                          "name": "si3desc",
+                          "opacity": 0.5,
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 300,
+                          "content": "Social, pitch decks, ads, motion — every post, every day, perfectly on brand.",
+                          "textAlign": "right",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hZ4T2",
+                          "name": "si3arr",
+                          "opacity": 0.5,
+                          "fill": "$gold-dk",
+                          "content": "→",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 19,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4hfoF",
+                  "name": "si4",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "gap": 32,
+                  "padding": [
+                    32,
+                    80
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qj5Xt",
+                      "name": "si4n",
+                      "opacity": 0.28,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 72,
+                      "content": "04",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.28
+                    },
+                    {
+                      "type": "text",
+                      "id": "80R8N",
+                      "name": "si4deva",
+                      "opacity": 0.12,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "बुद्धि",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 38,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MBZzs",
+                      "name": "si4name",
+                      "opacity": 0.58,
+                      "fill": "$ink",
+                      "content": "AI & Systems",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 30,
+                      "fontWeight": "700",
+                      "letterSpacing": 0.03
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AWtO5",
+                      "name": "si4r",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Qk4g4",
+                          "name": "si4desc",
+                          "opacity": 0.5,
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": 300,
+                          "content": "Automation, AI tools, dashboards — the future, built directly into your business.",
+                          "textAlign": "right",
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 16,
+                          "fontWeight": "normal",
+                          "fontStyle": "italic"
+                        },
+                        {
+                          "type": "text",
+                          "id": "13RW0",
+                          "name": "si4arr",
+                          "opacity": 0.5,
+                          "fill": "$gold-dk",
+                          "content": "→",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 19,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "h56kR",
+              "name": "svcFtr",
+              "width": "fill_container",
+              "padding": [
+                56,
+                80,
+                0,
+                80
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qGvMQ",
+                  "name": "svcMore",
+                  "opacity": 0.38,
+                  "fill": "$ink",
+                  "content": "SEE EVERYTHING WE HANDLE →",
+                  "fontFamily": "Cinzel",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 0.4
+                },
+                {
+                  "type": "text",
+                  "id": "DzaJM",
+                  "name": "svcNote",
+                  "opacity": 0.38,
+                  "fill": "$ink",
+                  "content": "One team. Every discipline.",
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IV5Fu",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "BRuiK",
+          "name": "Trust",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$white",
+          "layout": "vertical",
+          "padding": [
+            160,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "ZvkVY",
+              "name": "trHdr",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                0,
+                0,
+                112,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Mxk2i",
+                  "name": "trEye",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "KfsTv",
+                      "name": "trEyeLine",
+                      "opacity": 0.5,
+                      "width": 28,
+                      "height": 1,
+                      "fill": "$gold-dk"
+                    },
+                    {
+                      "type": "text",
+                      "id": "f2q49",
+                      "name": "trEyeText",
+                      "opacity": 0.62,
+                      "fill": "$gold-dk",
+                      "content": "THE DIFFERENCE",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 9,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.55
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iERok",
+                  "name": "trH",
+                  "fill": "$ink",
+                  "content": "Not an agency. Not a freelancer.\nSomething better.",
+                  "lineHeight": 1.06,
+                  "fontFamily": "Cinzel",
+                  "fontSize": 72,
+                  "fontWeight": "900"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5ibaH",
+              "name": "trCards",
+              "width": "fill_container",
+              "height": "fit_content(0)",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$ink"
+              },
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NrbVP",
+                  "name": "tc1",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "layout": "vertical",
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IGJ6o",
+                      "name": "tc1sym",
+                      "opacity": 0.28,
+                      "fill": "$gold-dk",
+                      "content": "एक",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 60,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FqYdz",
+                      "name": "tc1title",
+                      "opacity": 0.88,
+                      "fill": "$ink",
+                      "content": "One team. Everything digital.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 23,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "5uHe1",
+                      "name": "tc1body",
+                      "opacity": 0.6,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "No briefing a new designer every month. No inconsistency. One team that knows your brand as well as you do — and shows up every single day without fail.",
+                      "lineHeight": 1.95,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fTUTd",
+                  "name": "tc2",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "$ink"
+                  },
+                  "layout": "vertical",
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zhLc0",
+                      "name": "tc2sym",
+                      "opacity": 0.28,
+                      "fill": "$gold-dk",
+                      "content": "सदा",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 60,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "le7db",
+                      "name": "tc2title",
+                      "opacity": 0.88,
+                      "fill": "$ink",
+                      "content": "Always on. Always yours.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 23,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YXh0U",
+                      "name": "tc2body",
+                      "opacity": 0.6,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Need a banner at 10pm? A deck by Friday? Your in-house team doesn't keep office hours. We work like we're inside your company — because for you, we are.",
+                      "lineHeight": 1.95,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WDalm",
+                  "name": "tc3",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6mX0n",
+                      "name": "tc3sym",
+                      "opacity": 0.28,
+                      "fill": "$gold-dk",
+                      "content": "श्रेष्ठ",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 60,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dQTBM",
+                      "name": "tc3title",
+                      "opacity": 0.88,
+                      "fill": "$ink",
+                      "content": "No compromises. Ever.",
+                      "lineHeight": 1.2,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 23,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iOtTW",
+                      "name": "tc3body",
+                      "opacity": 0.6,
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "We built our own brand to the highest standard in the world. That's the only standard we know. Every pixel. Every word. Every interaction. Uncompromising.",
+                      "lineHeight": 1.95,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tvq8V",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "sJgNa",
+          "name": "Studio",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$ink",
+          "layout": "vertical",
+          "padding": [
+            140,
+            48
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "EC5ky",
+              "name": "stIn",
+              "width": 1200,
+              "gap": 64,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zw0s7",
+                  "name": "stLeft",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eIDPq",
+                      "name": "stTag",
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "EKlJr",
+                          "name": "stTagLine",
+                          "opacity": 0.4,
+                          "width": 28,
+                          "height": 1,
+                          "fill": "$gold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y7reY",
+                          "name": "stTagText",
+                          "opacity": 0.35,
+                          "fill": "$gold",
+                          "content": "PRIVATE DIGITAL STUDIO",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 9,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.55
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "nvmTo",
+                      "name": "stBig",
+                      "opacity": 0.88,
+                      "fill": "$white",
+                      "content": "Built to handle\neverything so you\nhandle nothing.",
+                      "lineHeight": 1.05,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 64,
+                      "fontWeight": "900"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iY4Vs",
+                  "name": "stRight",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YfbIQ",
+                      "name": "stBody",
+                      "opacity": 0.55,
+                      "fill": "$gold-lt",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "We're not a vendor you hire for a project. We're the digital arm of your business — embedded, trusted, and relentless. From your first logo to your hundredth campaign, we are there.",
+                      "lineHeight": 2,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 20,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DYlpU",
+                      "name": "stCta",
+                      "gap": 24,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "EZOKC",
+                          "name": "btnG",
+                          "fill": "$gold",
+                          "padding": [
+                            14,
+                            35
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "BCsQ4",
+                              "name": "btnGText",
+                              "fill": "$ink2",
+                              "content": "START TODAY",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 11,
+                              "fontWeight": "700",
+                              "letterSpacing": 0.3
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QWBoD",
+                          "name": "btnOl",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "$gold"
+                          },
+                          "padding": [
+                            13,
+                            32
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CtJWR",
+                              "name": "btnOlText",
+                              "opacity": 0.82,
+                              "fill": "$gold",
+                              "content": "OUR STORY",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 11,
+                              "fontWeight": "normal",
+                              "letterSpacing": 0.35
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kmEl7",
+          "name": "Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$gold-dk"
+        },
+        {
+          "type": "frame",
+          "id": "a5oio",
+          "name": "CTA",
+          "width": "fill_container",
+          "height": 800,
+          "fill": "$white",
+          "layout": "vertical",
+          "padding": [
+            160,
+            48
+          ],
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "RkT0u",
+              "name": "ctaIn",
+              "width": 900,
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xYSmo",
+                  "name": "ctaKick",
+                  "opacity": 0.55,
+                  "fill": "$ink",
+                  "content": "For businesses who refuse to settle —",
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 22,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "frame",
+                  "id": "E1wcO",
+                  "name": "ctaLw",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ewD2U",
+                      "name": "ctaLt1",
+                      "opacity": 0.92,
+                      "fill": "$ink",
+                      "content": "Stop managing",
+                      "lineHeight": 0.97,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 136,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.02
+                    },
+                    {
+                      "type": "text",
+                      "id": "3Zfl5",
+                      "name": "ctaLt2",
+                      "opacity": 0.92,
+                      "fill": "$ink",
+                      "content": "your brand.",
+                      "lineHeight": 0.97,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 136,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.02
+                    },
+                    {
+                      "type": "text",
+                      "id": "atpDc",
+                      "name": "ctaLt3",
+                      "fill": "$gold-dk",
+                      "content": "Start owning it.",
+                      "lineHeight": 0.97,
+                      "fontFamily": "Cinzel",
+                      "fontSize": 136,
+                      "fontWeight": "900",
+                      "letterSpacing": -0.02
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "FULWy",
+                  "name": "ctaBody",
+                  "opacity": 0.65,
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "Tell us about your business. We'll tell you exactly what we can take off your plate — and how we'd make every piece of it extraordinary.",
+                  "lineHeight": 1.9,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 21,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "bRZAk",
+                  "name": "ctaBtns",
+                  "gap": 24,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "HwBjk",
+                      "name": "btnBlk",
+                      "fill": "$ink",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$ink"
+                      },
+                      "padding": [
+                        17,
+                        44
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "twHg7",
+                          "name": "btnBlkText",
+                          "fill": "$gold",
+                          "content": "BEGIN THE CONVERSATION",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 0.35
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "VwAlb",
+                      "name": "btnGhost",
+                      "stroke": {
+                        "thickness": {
+                          "bottom": 1
+                        },
+                        "fill": "$ink"
+                      },
+                      "padding": [
+                        0,
+                        0,
+                        4,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JuCfo",
+                          "name": "btnGhostText",
+                          "opacity": 0.5,
+                          "fill": "$ink",
+                          "content": "SEE OUR SERVICES",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 11,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.35
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "McxPD",
+                  "name": "ctaTag",
+                  "opacity": 0.2,
+                  "fill": "$ink",
+                  "content": "कर्म ही धर्म है",
+                  "fontFamily": "Noto Serif Devanagari",
+                  "fontSize": 19,
+                  "fontWeight": "300"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "h8Tfu",
+          "name": "Footer",
+          "width": "fill_container",
+          "height": 400,
+          "fill": "$ink",
+          "layout": "vertical",
+          "padding": [
+            80,
+            48
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "jvlNZ",
+              "name": "ft",
+              "width": 1200,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "N8s5G",
+                  "name": "ftTop",
+                  "width": "fill_container",
+                  "stroke": {
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$white"
+                  },
+                  "gap": 48,
+                  "padding": [
+                    0,
+                    0,
+                    48,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "N1L4y",
+                      "name": "ftC1",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "XkEv2",
+                          "name": "ftLogo",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "b3YCP",
+                              "name": "ftl1",
+                              "fill": "$white",
+                              "content": "कर्म",
+                              "fontFamily": "Noto Serif Devanagari",
+                              "fontSize": 20,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "ellipse",
+                              "id": "lZxsu",
+                              "name": "ftl2",
+                              "fill": "$gold",
+                              "width": 5,
+                              "height": 5
+                            },
+                            {
+                              "type": "text",
+                              "id": "fVHj2",
+                              "name": "ftl3",
+                              "fill": "$white",
+                              "content": "PHAL",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 14,
+                              "fontWeight": "900",
+                              "letterSpacing": 0.14
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "P7vzG",
+                          "name": "ftTag",
+                          "opacity": 0.48,
+                          "fill": "$white",
+                          "textGrowth": "fixed-width",
+                          "width": 260,
+                          "content": "Your private in-house digital team. Handling everything so you can focus on what you were born to do.",
+                          "lineHeight": 1.75,
+                          "fontFamily": "Cormorant Garamond",
+                          "fontSize": 18,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dRlND",
+                          "name": "ftSocial",
+                          "gap": 20,
+                          "padding": [
+                            24,
+                            0,
+                            0,
+                            0
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OxYNr",
+                              "name": "ftS1",
+                              "opacity": 0.42,
+                              "fill": "$white",
+                              "content": "IG",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "zlsmH",
+                              "name": "ftS2",
+                              "opacity": 0.42,
+                              "fill": "$white",
+                              "content": "IN",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "HlBwS",
+                              "name": "ftS3",
+                              "opacity": 0.42,
+                              "fill": "$white",
+                              "content": "EN",
+                              "fontFamily": "Cinzel",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Kqo5v",
+                      "name": "ftC2",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "9ZgIs",
+                          "name": "ftC2t",
+                          "opacity": 0.42,
+                          "fill": "$gold",
+                          "content": "NAVIGATE",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 8,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.45
+                        },
+                        {
+                          "type": "frame",
+                          "id": "7l4if",
+                          "name": "ftC2Links",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "l2z4j",
+                              "name": "ftL1",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "Services",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal",
+                              "letterSpacing": 0.02
+                            },
+                            {
+                              "type": "text",
+                              "id": "iGqoJ",
+                              "name": "ftL2",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "About",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal",
+                              "letterSpacing": 0.02
+                            },
+                            {
+                              "type": "text",
+                              "id": "MapbA",
+                              "name": "ftL3",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "Contact",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal",
+                              "letterSpacing": 0.02
+                            },
+                            {
+                              "type": "text",
+                              "id": "KHojG",
+                              "name": "ftL4",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "Work With Us",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal",
+                              "letterSpacing": 0.02
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aygFn",
+                      "name": "ftC3",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 20,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "2SvfB",
+                          "name": "ftC3t",
+                          "opacity": 0.42,
+                          "fill": "$gold",
+                          "content": "CONNECT",
+                          "fontFamily": "Cinzel",
+                          "fontSize": 8,
+                          "fontWeight": "normal",
+                          "letterSpacing": 0.45
+                        },
+                        {
+                          "type": "frame",
+                          "id": "yslBG",
+                          "name": "ftC3Links",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "A6CKJ",
+                              "name": "ftR1",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "hello@karmaphal.in",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "p2G7w",
+                              "name": "ftR2",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "@houseofkarmaphal",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FjdZt",
+                              "name": "ftR3",
+                              "opacity": 0.52,
+                              "fill": "$white",
+                              "content": "LinkedIn",
+                              "fontFamily": "Cormorant Garamond",
+                              "fontSize": 17,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kwMoE",
+                  "name": "ftBot",
+                  "width": "fill_container",
+                  "padding": [
+                    32,
+                    0,
+                    0,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DeKgs",
+                      "name": "ftCopy",
+                      "opacity": 0.28,
+                      "fill": "$white",
+                      "content": "© 2026 KARMAPHAL · ALL RIGHTS RESERVED",
+                      "fontFamily": "Cinzel",
+                      "fontSize": 8,
+                      "fontWeight": "normal",
+                      "letterSpacing": 0.3
+                    },
+                    {
+                      "type": "text",
+                      "id": "t4EGK",
+                      "name": "ftDharma",
+                      "opacity": 0.32,
+                      "fill": "$gold",
+                      "content": "कर्म ही धर्म है",
+                      "fontFamily": "Noto Serif Devanagari",
+                      "fontSize": 16,
+                      "fontWeight": "300"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "cream": {
+      "type": "color",
+      "value": "#F3EDE0"
+    },
+    "font-cinzel": {
+      "type": "string",
+      "value": "Cinzel"
+    },
+    "font-cormorant": {
+      "type": "string",
+      "value": "Cormorant Garamond"
+    },
+    "font-devanagari": {
+      "type": "string",
+      "value": "Noto Serif Devanagari"
+    },
+    "gold": {
+      "type": "color",
+      "value": "#C9A84C"
+    },
+    "gold-dk": {
+      "type": "color",
+      "value": "#7A5C1E"
+    },
+    "gold-lt": {
+      "type": "color",
+      "value": "#EDD87A"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#080600"
+    },
+    "ink2": {
+      "type": "color",
+      "value": "#141000"
+    },
+    "white": {
+      "type": "color",
+      "value": "#FAFAF7"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --obsidian: #010101;
+  --gold: #D4AF37;
+  --silver: #C0C0C0;
+  --white: #FFFFFF;
+}
+
+body {
+  background-color: var(--obsidian);
+  color: var(--silver);
+  font-family: var(--font-cinzel), serif;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.text-gold-gradient {
+  background: linear-gradient(180deg, #FFF 0%, #F9E2AF 25%, #D4AF37 55%, #8A6D3B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-monolith {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
