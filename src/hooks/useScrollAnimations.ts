@@ -21,88 +21,134 @@ export function useScrollAnimations() {
                 });
             });
 
-            // ── MANIFESTO ──
+            // ── MANIFESTO — CINEMATIC TEXT STAGE ──
             const manifesto = document.getElementById("manifesto");
-            if (manifesto) {
-                // Eyebrow
-                gsap.to(manifesto.querySelector(".mf-eyebrow"), {
-                    opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-                    scrollTrigger: { trigger: manifesto, start: "top 70%" },
+            const mfPin = manifesto?.querySelector(".mf-pin") as HTMLElement | null;
+            if (manifesto && mfPin) {
+                // Pin the section for 2x viewport scroll
+                ScrollTrigger.create({
+                    trigger: manifesto,
+                    start: "top top",
+                    end: "+=150%",
+                    pin: mfPin,
+                    pinSpacing: true,
                 });
 
-                // Intro text
-                gsap.to(manifesto.querySelector(".mf-intro"), {
-                    opacity: 1, y: 0, duration: 0.9, delay: 0.15, ease: "power2.out",
-                    scrollTrigger: { trigger: manifesto, start: "top 70%" },
+                // Master timeline scrubbed to scroll
+                const mfTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: manifesto,
+                        start: "top top",
+                        end: "+=150%",
+                        scrub: 1,
+                    },
                 });
 
-                // Big text line reveals (mask reveal)
-                gsap.utils.toArray<HTMLElement>(".ml-wrap").forEach((wrap, i) => {
-                    gsap.to(wrap.querySelector(".ml-inner"), {
-                        y: 0, duration: 1.4, delay: 0.25 + i * 0.13, ease: "power3.out",
-                        scrollTrigger: { trigger: manifesto, start: "top 65%" },
-                    });
+                // Ghost parallax
+                mfTl.to(manifesto.querySelector(".mf-ghost"), {
+                    y: -150, ease: "none",
+                }, 0);
+
+                // Progress bar
+                mfTl.to(manifesto.querySelector(".mf-progress"), {
+                    width: "100%", duration: 1, ease: "none",
+                }, 0);
+
+                // Reveal sequence
+                mfTl.to(manifesto.querySelector(".mf-eyebrow"), {
+                    opacity: 1, y: 0, duration: 0.1, ease: "power2.out",
+                }, 0.05);
+
+                mfTl.to(manifesto.querySelector(".mf-intro"), {
+                    opacity: 1, y: 0, duration: 0.1, ease: "power2.out",
+                }, 0.1);
+
+                // Cinematic word cascades
+                const words = manifesto.querySelectorAll(".mf-word");
+                words.forEach((word, i) => {
+                    mfTl.to(word, {
+                        opacity: 1, y: 0, duration: 0.15, ease: "power3.out",
+                    }, 0.15 + i * 0.08);
                 });
 
                 // Gold underline
-                gsap.to(manifesto.querySelector(".mf-underline"), {
-                    width: "clamp(120px,35vw,380px)", duration: 1.2, delay: 0.9, ease: "power3.out",
-                    scrollTrigger: { trigger: manifesto, start: "top 65%" },
-                });
+                mfTl.to(manifesto.querySelector(".mf-underline"), {
+                    width: "clamp(100px,25vw,280px)", duration: 0.15, ease: "power3.out",
+                }, 0.5);
 
-                // Body columns
-                gsap.to(manifesto.querySelector(".mf-body"), {
-                    opacity: 1, y: 0, duration: 1.1, delay: 1.0, ease: "power2.out",
-                    scrollTrigger: { trigger: manifesto, start: "top 65%" },
-                });
-
-                // Parallax ghost elements
-                gsap.to(manifesto.querySelector(".mf-ghost"), {
-                    y: 120, ease: "none",
-                    scrollTrigger: { trigger: manifesto, start: "top bottom", end: "bottom top", scrub: 1.5 },
-                });
-                gsap.to(manifesto.querySelector(".mf-pg"), {
-                    y: 70, ease: "none",
-                    scrollTrigger: { trigger: manifesto, start: "top bottom", end: "bottom top", scrub: 1.5 },
-                });
+                // Bottom footer content
+                mfTl.to(manifesto.querySelector(".mf-bottom"), {
+                    opacity: 1, y: 0, duration: 0.15, ease: "power2.out",
+                }, 0.6);
             }
 
-            // ── METRICS ──
+            // ── METRICS — HORIZONTAL SCROLL THEATER ──
             const metrics = document.getElementById("metrics");
-            if (metrics) {
-                // Header reveal
-                gsap.utils.toArray<HTMLElement>("#metrics .rv").forEach((el) => {
-                    gsap.to(el, {
-                        opacity: 1, y: 0, duration: 1, ease: "power2.out",
-                        scrollTrigger: { trigger: el, start: "top 80%" },
-                    });
+            const metPin = metrics?.querySelector(".met-pin") as HTMLElement | null;
+            const metTrack = metrics?.querySelector(".met-track") as HTMLElement | null;
+
+            if (metrics && metPin && metTrack) {
+                // Determine horizontal scroll distance
+                const getScrollAmount = () => -(metTrack.scrollWidth - window.innerWidth + 100); // 100px padding buffer
+
+                // Pin and scroll horizontally
+                const metTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: metrics,
+                        start: "top top",
+                        end: () => `+=${getScrollAmount() * -1}`,
+                        pin: metPin,
+                        scrub: 1,
+                        invalidateOnRefresh: true,
+                        onUpdate: (self) => {
+                            // Update dots based on progress
+                            const dots = metrics.querySelectorAll(".met-dot");
+                            const totalDots = dots.length;
+                            const activeIndex = Math.min(
+                                Math.floor(self.progress * totalDots),
+                                totalDots - 1
+                            );
+
+                            dots.forEach((dot, i) => {
+                                if (i === activeIndex) {
+                                    dot.classList.add("active");
+                                } else {
+                                    dot.classList.remove("active");
+                                }
+                            });
+                        }
+                    }
                 });
 
-                // Metric rows stagger
-                gsap.utils.toArray<HTMLElement>(".mr").forEach((el, i) => {
-                    gsap.to(el, {
-                        opacity: 1, y: 0, duration: 1.1, delay: i * 0.12, ease: "power3.out",
-                        scrollTrigger: { trigger: el, start: "top 85%" },
-                    });
-                });
+                // Move track horizontally
+                metTl.to(metTrack, {
+                    x: getScrollAmount,
+                    ease: "none"
+                }, 0);
 
-                // Count-up on scroll
-                metrics.querySelectorAll("[data-target]").forEach((el) => {
+                // Progress line
+                metTl.to(metrics.querySelector(".met-progress"), {
+                    width: "100%", ease: "none"
+                }, 0);
+
+                // Count-up animations when cards enter viewport
+                metrics.querySelectorAll(".met-card-num[data-target]").forEach((el) => {
                     const htmlEl = el as HTMLElement;
                     const target = parseInt(htmlEl.dataset.target || "0") || 0;
                     const suffix = htmlEl.dataset.suffix || "";
                     if (!target) return;
 
                     ScrollTrigger.create({
-                        trigger: el,
-                        start: "top 85%",
+                        trigger: el.closest(".met-card"),
+                        start: "left 85%", // Trigger based on horizontal position (via a container trigger)
+                        containerAnimation: metTl, // VERY IMPORTANT: tie it to the horizontal scroll timeline
                         once: true,
                         onEnter: () => {
                             const obj = { val: 0 };
                             gsap.to(obj, {
-                                val: target, duration: 2.2, ease: "power3.out",
+                                val: target, duration: 2, ease: "power3.out",
                                 onUpdate: () => {
-                                    el.textContent = Math.round(obj.val) + suffix;
+                                    el.innerHTML = Math.round(obj.val) + suffix;
                                 },
                             });
                         },

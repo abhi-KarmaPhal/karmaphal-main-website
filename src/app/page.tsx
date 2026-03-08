@@ -412,29 +412,41 @@ export default function MonolithHero() {
 
       {/*  ══ MANIFESTO ════════════════════════════════════════  */}
       <section id="manifesto">
-        <div className="mf-pg" aria-hidden="true">001</div>
-        <div className="mf-ghost" aria-hidden="true">फल</div>
-        <div className="mf-eyebrow">
-          <span className="mf-ey-line"></span>
-          <span className="mf-ey-txt">§ 001 — The Vision</span>
-          <span className="mf-ey-dot"></span>
-        </div>
-        <div className="mf-content">
-          <p className="mf-intro">Most businesses are brilliant at what they do.<br />Everything else — the brand, the website, the content, the systems — is where great companies quietly lose ground.</p>
-          <div className="mf-big">
-            <span className="ml-wrap"><span className="ml-inner ml-ev">EVERYTHING</span></span>
-            <span className="ml-wrap" style={{ transitionDelay: '.12s' }}><span className="ml-inner ml-el">ELSE?</span></span>
-            <span className="ml-wrap" style={{ transitionDelay: '.28s' }}><span className="ml-inner ml-thats">THAT'S</span></span>
-            <span className="ml-wrap" style={{ transitionDelay: '.42s' }}><span className="ml-inner ml-us">US.</span></span>
+        <div className="mf-pin">
+          <div className="mf-pg" aria-hidden="true">001</div>
+          <div className="mf-ghost" aria-hidden="true">फल</div>
+          <div className="mf-progress"></div>
+
+          <div className="mf-eyebrow">
+            <span className="mf-ey-line"></span>
+            <span className="mf-ey-txt">§ 001 — The Vision</span>
+            <span className="mf-ey-dot"></span>
           </div>
-          <div className="mf-underline"></div>
-          <div className="mf-body">
-            <div className="mf-col-l">
-              <p className="mf-p">We are your private in-house digital team — handling every logo, website, banner, pitch deck, app, and AI system. So you can do what you were born to do. Without distraction. Without compromise.</p>
-            </div>
-            <div className="mf-col-r">
-              <p className="mf-p2">The fruit of great karma is extraordinary output. We exist to make your brand's actions produce results worthy of the name you've built.</p>
+
+          <p className="mf-intro">Most businesses are brilliant at what they do. Everything else — the brand, the website, the content, the systems — is where great companies quietly lose ground.</p>
+
+          <div className="mf-statement">
+            <span className="mf-line">
+              <span className="mf-word w-sm">EVERYTHING</span>
+            </span>
+            <span className="mf-line">
+              <span className="mf-word w-lg gold">ELSE?</span>
+            </span>
+            <span className="mf-line">
+              <span className="mf-word w-sm">THAT&apos;S</span>
+              <span className="mf-word w-sm gold">US.</span>
+            </span>
+            <div className="mf-underline"></div>
+          </div>
+
+          <div className="mf-bottom">
+            <div className="mf-bottom-left">
+              <p className="mf-body-text">We are your private in-house digital team — handling every logo, website, banner, pitch deck, app, and AI system. So you can do what you were born to do. Without distraction. Without compromise.</p>
               <a href="/about" className="mf-link">Our Philosophy →</a>
+            </div>
+            <div className="mf-bottom-right">
+              <span className="mf-quote-deva">कर्म ही धर्म है</span>
+              <span className="mf-quote-en">The fruit of great karma is extraordinary output. We exist to make your brand&apos;s actions produce results worthy of the name you&apos;ve built.</span>
             </div>
           </div>
         </div>
@@ -446,46 +458,64 @@ export default function MonolithHero() {
       {/*  ══ METRICS ══════════════════════════════════════════  */}
       <section id="metrics">
         <AmbientParticles />
-        <div className="met-hdr rv">
-          <div>
-            <div className="met-tag">§ 002 — Why It Works</div>
-            <h2 className="met-title">Numbers that speak<br /><em>without apology.</em></h2>
+        <div className="met-pin">
+          <div className="met-hdr">
+            <div>
+              <div className="met-tag">§ 002 — Why It Works</div>
+              <h2 className="met-title">Numbers that speak<br /><em>without apology.</em></h2>
+            </div>
+            <p className="met-note">Every number here is a promise — not a pitch.</p>
           </div>
-          <p className="met-note">Every number here is a promise — not a pitch.</p>
-        </div>
-        <div className="met-rows">
-          <div className="mr">
-            <span className="mr-num" data-target="100" data-suffix="%">100%</span>
-            <span className="mr-deva">एकता</span>
-            <div className="mr-content">
-              <span className="mr-label">In-House. Always.</span>
-              <p className="mr-desc">Not outsourced. Not freelancers. Your permanent team — embedded in your brand, accountable to your growth every single day.</p>
+
+          <div className="met-track-wrap">
+            <div className="met-track">
+              {/* Card 1 */}
+              <div className="met-card">
+                <span className="met-card-deva" aria-hidden="true">एकता</span>
+                <span className="met-card-num" data-target="100" data-suffix="%">0%</span>
+                <div className="met-card-content">
+                  <div className="met-card-label">In-House. Always.</div>
+                  <div className="met-card-desc">Not outsourced. Not freelancers. Your permanent team — embedded in your brand, accountable to your growth every single day.</div>
+                </div>
+              </div>
+              {/* Card 2 */}
+              <div className="met-card">
+                <span className="met-card-deva" aria-hidden="true">निरंतर</span>
+                <span className="met-card-num" data-target="24" data-suffix="/7">0/7</span>
+                <div className="met-card-content">
+                  <div className="met-card-label">No Office Hours.</div>
+                  <div className="met-card-desc">Your brand never sleeps and neither do we. A banner at 10pm, a deck by Friday — handled without drama, always on time.</div>
+                </div>
+              </div>
+              {/* Card 3 */}
+              <div className="met-card">
+                <span className="met-card-deva" aria-hidden="true">ज्ञान</span>
+                <span className="met-card-num" data-target="4" data-suffix="" data-pad="0">00</span>
+                <div className="met-card-content">
+                  <div className="met-card-label">Full Disciplines</div>
+                  <div className="met-card-desc">Brand · Web · Content · AI. Every digital corner covered under one roof, by one permanent team that knows you.</div>
+                </div>
+              </div>
+              {/* Card 4 */}
+              <div className="met-card">
+                <span className="met-card-deva" aria-hidden="true">अनंत</span>
+                <span className="met-card-num">∞</span>
+                <div className="met-card-content">
+                  <div className="met-card-label">Unlimited Requests</div>
+                  <div className="met-card-desc">One flat retainer. No per-project fees. No scope creep. Just extraordinary work — endlessly, tirelessly, brilliantly.</div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mr" style={{ transitionDelay: '.1s' }}>
-            <span className="mr-num" data-target="24" data-suffix="/7">24/7</span>
-            <span className="mr-deva">निरंतर</span>
-            <div className="mr-content">
-              <span className="mr-label">No Office Hours.</span>
-              <p className="mr-desc">Your brand never sleeps and neither do we. A banner at 10pm, a deck by Friday — handled without drama, always on time.</p>
-            </div>
+
+          <div className="met-dots">
+            <div className="met-dot active"></div>
+            <div className="met-dot"></div>
+            <div className="met-dot"></div>
+            <div className="met-dot"></div>
           </div>
-          <div className="mr" style={{ transitionDelay: '.2s' }}>
-            <span className="mr-num">04</span>
-            <span className="mr-deva">ज्ञान</span>
-            <div className="mr-content">
-              <span className="mr-label">Full Disciplines</span>
-              <p className="mr-desc">Brand · Web · Content · AI. Every digital corner covered under one roof, by one permanent team that knows you.</p>
-            </div>
-          </div>
-          <div className="mr" style={{ transitionDelay: '.3s' }}>
-            <span className="mr-num">∞</span>
-            <span className="mr-deva">अनंत</span>
-            <div className="mr-content">
-              <span className="mr-label">Unlimited Requests</span>
-              <p className="mr-desc">One flat retainer. No per-project fees. No scope creep. Just extraordinary work — endlessly, tirelessly, brilliantly.</p>
-            </div>
-          </div>
+
+          <div className="met-progress"></div>
         </div>
       </section>
 
