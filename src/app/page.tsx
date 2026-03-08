@@ -522,7 +522,10 @@ export default function MonolithHero() {
         </div>
       </section>
 
-      <div className="section-blend-light"></div>
+      <div id="cd"></div><div id="cr"></div><div id="noise"></div>
+      <div className="sdiv"></div>
+      <div className="ticker dk" aria-hidden="true"><div className="ticker-t"><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span></div></div>
+      {/* <div className="section-blend-light"></div> */}
 
       {/*  ══ SERVICES ════════════════════════════════════════  */}
       <section id="services">
