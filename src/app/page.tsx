@@ -412,6 +412,9 @@ export default function MonolithHero() {
 
       {/*  ══ MANIFESTO ════════════════════════════════════════  */}
       <section id="manifesto">
+        <div className="mf-flash" aria-hidden="true"></div>
+        <div className="mf-spotlight" aria-hidden="true"></div>
+
         <div className="mf-pin">
           <div className="mf-pg" aria-hidden="true">001</div>
           <div className="mf-ghost" aria-hidden="true">फल</div>
@@ -425,19 +428,22 @@ export default function MonolithHero() {
 
           <p className="mf-intro">Most businesses are brilliant at what they do. Everything else — the brand, the website, the content, the systems — is where great companies quietly lose ground.</p>
 
-          <div className="mf-statement">
-            <span className="mf-line">
-              <span className="mf-word w-sm">EVERYTHING</span>
-            </span>
-            <span className="mf-line">
-              <span className="mf-word w-lg gold">ELSE?</span>
-            </span>
-            <span className="mf-line">
-              <span className="mf-word w-sm">THAT&apos;S</span>
-              <span className="mf-word w-sm gold">US.</span>
-            </span>
-            <div className="mf-underline"></div>
+          {/* Masking container for the dramatic reveal */}
+          <div className="mf-statement-mask">
+            <div className="mf-statement">
+              <span className="mf-line">
+                <span className="mf-word w-sm">EVERYTHING</span>
+              </span>
+              <span className="mf-line">
+                <span className="mf-word w-lg gold">ELSE?</span>
+              </span>
+              <span className="mf-line">
+                <span className="mf-word w-sm">THAT&apos;S</span>
+                <span className="mf-word w-sm gold">US.</span>
+              </span>
+            </div>
           </div>
+          <div className="mf-underline"></div>
 
           <div className="mf-bottom">
             <div className="mf-bottom-left">
@@ -458,7 +464,7 @@ export default function MonolithHero() {
       {/*  ══ METRICS ══════════════════════════════════════════  */}
       <section id="metrics">
         <AmbientParticles />
-        <div className="met-pin">
+        <div className="met-container">
           <div className="met-hdr">
             <div>
               <div className="met-tag">§ 002 — Why It Works</div>
@@ -467,55 +473,52 @@ export default function MonolithHero() {
             <p className="met-note">Every number here is a promise — not a pitch.</p>
           </div>
 
-          <div className="met-track-wrap">
-            <div className="met-track">
-              {/* Card 1 */}
-              <div className="met-card">
-                <span className="met-card-deva" aria-hidden="true">एकता</span>
-                <span className="met-card-num" data-target="100" data-suffix="%">0%</span>
-                <div className="met-card-content">
-                  <div className="met-card-label">In-House. Always.</div>
-                  <div className="met-card-desc">Not outsourced. Not freelancers. Your permanent team — embedded in your brand, accountable to your growth every single day.</div>
-                </div>
+          <div className="met-ledger">
+            {/* Cell 1 */}
+            <div className="met-cell">
+              <span className="met-cell-deva" aria-hidden="true">एकता</span>
+              <div className="met-cell-top">
+                <span className="met-cell-num" data-target="100" data-suffix="%">0</span>
               </div>
-              {/* Card 2 */}
-              <div className="met-card">
-                <span className="met-card-deva" aria-hidden="true">निरंतर</span>
-                <span className="met-card-num" data-target="24" data-suffix="/7">0/7</span>
-                <div className="met-card-content">
-                  <div className="met-card-label">No Office Hours.</div>
-                  <div className="met-card-desc">Your brand never sleeps and neither do we. A banner at 10pm, a deck by Friday — handled without drama, always on time.</div>
-                </div>
+              <div className="met-cell-bot">
+                <div className="met-cell-label">In-House. Always.</div>
+                <div className="met-cell-desc">Not outsourced. Not freelancers. Your permanent team — embedded in your brand.</div>
               </div>
-              {/* Card 3 */}
-              <div className="met-card">
-                <span className="met-card-deva" aria-hidden="true">ज्ञान</span>
-                <span className="met-card-num" data-target="4" data-suffix="" data-pad="0">00</span>
-                <div className="met-card-content">
-                  <div className="met-card-label">Full Disciplines</div>
-                  <div className="met-card-desc">Brand · Web · Content · AI. Every digital corner covered under one roof, by one permanent team that knows you.</div>
-                </div>
+            </div>
+            {/* Cell 2 */}
+            <div className="met-cell">
+              <span className="met-cell-deva" aria-hidden="true">निरंतर</span>
+              <div className="met-cell-top">
+                <span className="met-cell-num" data-target="24" data-suffix="/7">0</span>
               </div>
-              {/* Card 4 */}
-              <div className="met-card">
-                <span className="met-card-deva" aria-hidden="true">अनंत</span>
-                <span className="met-card-num">∞</span>
-                <div className="met-card-content">
-                  <div className="met-card-label">Unlimited Requests</div>
-                  <div className="met-card-desc">One flat retainer. No per-project fees. No scope creep. Just extraordinary work — endlessly, tirelessly, brilliantly.</div>
-                </div>
+              <div className="met-cell-bot">
+                <div className="met-cell-label">No Office Hours.</div>
+                <div className="met-cell-desc">Your brand never sleeps and neither do we. A banner at 10pm, a deck by Friday.</div>
+              </div>
+            </div>
+            {/* Cell 3 */}
+            <div className="met-cell">
+              <span className="met-cell-deva" aria-hidden="true">ज्ञान</span>
+              <div className="met-cell-top">
+                <span className="met-cell-num" data-target="4" data-suffix="" data-pad="0">0</span>
+              </div>
+              <div className="met-cell-bot">
+                <div className="met-cell-label">Full Disciplines</div>
+                <div className="met-cell-desc">Brand · Web · Content · AI. Every digital direction covered under one roof.</div>
+              </div>
+            </div>
+            {/* Cell 4 */}
+            <div className="met-cell">
+              <span className="met-cell-deva" aria-hidden="true">अनंत</span>
+              <div className="met-cell-top">
+                <span className="met-cell-num">∞</span>
+              </div>
+              <div className="met-cell-bot">
+                <div className="met-cell-label">Unlimited Requests</div>
+                <div className="met-cell-desc">One flat retainer. No scoping logic fees. Just extraordinary work endlessly.</div>
               </div>
             </div>
           </div>
-
-          <div className="met-dots">
-            <div className="met-dot active"></div>
-            <div className="met-dot"></div>
-            <div className="met-dot"></div>
-            <div className="met-dot"></div>
-          </div>
-
-          <div className="met-progress"></div>
         </div>
       </section>
 

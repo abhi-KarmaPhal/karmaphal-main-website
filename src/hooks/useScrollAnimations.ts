@@ -21,7 +21,7 @@ export function useScrollAnimations() {
                 });
             });
 
-            // ── MANIFESTO — CINEMATIC TEXT STAGE ──
+            // ── MANIFESTO — REVEALING THE CORE ──
             const manifesto = document.getElementById("manifesto");
             const mfPin = manifesto?.querySelector(".mf-pin") as HTMLElement | null;
             if (manifesto && mfPin) {
@@ -29,7 +29,7 @@ export function useScrollAnimations() {
                 ScrollTrigger.create({
                     trigger: manifesto,
                     start: "top top",
-                    end: "+=150%",
+                    end: "+=200%", // Extended for the dramatic reveal
                     pin: mfPin,
                     pinSpacing: true,
                 });
@@ -39,14 +39,14 @@ export function useScrollAnimations() {
                     scrollTrigger: {
                         trigger: manifesto,
                         start: "top top",
-                        end: "+=150%",
+                        end: "+=200%",
                         scrub: 1,
                     },
                 });
 
-                // Ghost parallax
+                // Ghost parallax (moves slower now)
                 mfTl.to(manifesto.querySelector(".mf-ghost"), {
-                    y: -150, ease: "none",
+                    y: -100, ease: "none",
                 }, 0);
 
                 // Progress bar
@@ -54,105 +54,118 @@ export function useScrollAnimations() {
                     width: "100%", duration: 1, ease: "none",
                 }, 0);
 
-                // Reveal sequence
+                // Track mouse/scroll to move spotlight (simple vertical scrub for now)
+                // We expand the clip-path of the statement mask to fully reveal it
+                mfTl.to(manifesto.querySelector(".mf-statement-mask"), {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                    duration: 0.5,
+                    ease: "power2.inOut",
+                }, 0.1);
+
+                // Slowly reveal the spotlight glow behind it
+                mfTl.to(manifesto.querySelector(".mf-spotlight"), {
+                    opacity: 1,
+                    duration: 0.3,
+                    ease: "power1.inOut"
+                }, 0.1);
+
+                // Move the spotlight down as we read
+                mfTl.fromTo(manifesto.querySelector(".mf-spotlight"),
+                    { yPercent: -30 },
+                    { yPercent: 30, duration: 0.5, ease: "none" },
+                    0.1);
+
+                // Reveal gold underline
+                mfTl.to(manifesto.querySelector(".mf-underline"), {
+                    opacity: 1, duration: 0.1, ease: "power2.out",
+                }, 0.5);
+
+                // Fade in ambient text elements as the light hits them
                 mfTl.to(manifesto.querySelector(".mf-eyebrow"), {
                     opacity: 1, y: 0, duration: 0.1, ease: "power2.out",
                 }, 0.05);
 
                 mfTl.to(manifesto.querySelector(".mf-intro"), {
-                    opacity: 1, y: 0, duration: 0.1, ease: "power2.out",
+                    opacity: 1, y: 0, duration: 0.15, ease: "power2.out",
                 }, 0.1);
 
-                // Cinematic word cascades
-                const words = manifesto.querySelectorAll(".mf-word");
-                words.forEach((word, i) => {
-                    mfTl.to(word, {
-                        opacity: 1, y: 0, duration: 0.15, ease: "power3.out",
-                    }, 0.15 + i * 0.08);
-                });
-
-                // Gold underline
-                mfTl.to(manifesto.querySelector(".mf-underline"), {
-                    width: "clamp(100px,25vw,280px)", duration: 0.15, ease: "power3.out",
-                }, 0.5);
-
-                // Bottom footer content
                 mfTl.to(manifesto.querySelector(".mf-bottom"), {
                     opacity: 1, y: 0, duration: 0.15, ease: "power2.out",
-                }, 0.6);
+                }, 0.55);
+
+                // THE CLIMAX: Flash Inversion when "THAT'S US." is fully revealed
+                mfTl.to(manifesto.querySelector(".mf-flash"), {
+                    opacity: 1,
+                    duration: 0.05, // Instantaneous flash
+                    ease: "expo.in"
+                }, 0.7);
+
+                // Toggle inverted class on the container for text color swaps
+                mfTl.call(() => {
+                    manifesto.classList.add("inverted");
+                }, undefined, 0.72);
+
+                // Reverse it if scrolling back up
+                mfTl.call(() => {
+                    manifesto.classList.remove("inverted");
+                }, undefined, 0.69);
             }
 
-            // ── METRICS — HORIZONTAL SCROLL THEATER ──
+            // ── METRICS — THE FINANCIAL LEDGER ──
             const metrics = document.getElementById("metrics");
-            const metPin = metrics?.querySelector(".met-pin") as HTMLElement | null;
-            const metTrack = metrics?.querySelector(".met-track") as HTMLElement | null;
 
-            if (metrics && metPin && metTrack) {
-                // Determine horizontal scroll distance
-                const getScrollAmount = () => -(metTrack.scrollWidth - window.innerWidth + 100); // 100px padding buffer
+            if (metrics) {
+                // Animate each cell as it enters the viewport
+                gsap.utils.toArray<HTMLElement>(".met-cell").forEach((cell) => {
+                    // Fade up the top section (number)
+                    gsap.to(cell.querySelector(".met-cell-num"), {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: cell,
+                            start: "top 85%",
+                        }
+                    });
 
-                // Pin and scroll horizontally
-                const metTl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: metrics,
-                        start: "top top",
-                        end: () => `+=${getScrollAmount() * -1}`,
-                        pin: metPin,
-                        scrub: 1,
-                        invalidateOnRefresh: true,
-                        onUpdate: (self) => {
-                            // Update dots based on progress
-                            const dots = metrics.querySelectorAll(".met-dot");
-                            const totalDots = dots.length;
-                            const activeIndex = Math.min(
-                                Math.floor(self.progress * totalDots),
-                                totalDots - 1
-                            );
+                    // Fade up the bottom section (text) slightly delayed
+                    gsap.to(cell.querySelector(".met-cell-bot"), {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        delay: 0.1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: cell,
+                            start: "top 85%",
+                        }
+                    });
 
-                            dots.forEach((dot, i) => {
-                                if (i === activeIndex) {
-                                    dot.classList.add("active");
-                                } else {
-                                    dot.classList.remove("active");
-                                }
+                    // Count up animation
+                    const numEl = cell.querySelector(".met-cell-num[data-target]") as HTMLElement | null;
+                    if (numEl) {
+                        const target = parseInt(numEl.dataset.target || "0") || 0;
+                        const suffix = numEl.dataset.suffix || "";
+                        if (target) {
+                            ScrollTrigger.create({
+                                trigger: cell,
+                                start: "top 85%",
+                                once: true,
+                                onEnter: () => {
+                                    const obj = { val: 0 };
+                                    gsap.to(obj, {
+                                        val: target,
+                                        duration: 2,
+                                        ease: "power3.out",
+                                        onUpdate: () => {
+                                            numEl.innerHTML = String(Math.round(obj.val));
+                                        },
+                                    });
+                                },
                             });
                         }
                     }
-                });
-
-                // Move track horizontally
-                metTl.to(metTrack, {
-                    x: getScrollAmount,
-                    ease: "none"
-                }, 0);
-
-                // Progress line
-                metTl.to(metrics.querySelector(".met-progress"), {
-                    width: "100%", ease: "none"
-                }, 0);
-
-                // Count-up animations when cards enter viewport
-                metrics.querySelectorAll(".met-card-num[data-target]").forEach((el) => {
-                    const htmlEl = el as HTMLElement;
-                    const target = parseInt(htmlEl.dataset.target || "0") || 0;
-                    const suffix = htmlEl.dataset.suffix || "";
-                    if (!target) return;
-
-                    ScrollTrigger.create({
-                        trigger: el.closest(".met-card"),
-                        start: "left 85%", // Trigger based on horizontal position (via a container trigger)
-                        containerAnimation: metTl, // VERY IMPORTANT: tie it to the horizontal scroll timeline
-                        once: true,
-                        onEnter: () => {
-                            const obj = { val: 0 };
-                            gsap.to(obj, {
-                                val: target, duration: 2, ease: "power3.out",
-                                onUpdate: () => {
-                                    el.innerHTML = Math.round(obj.val) + suffix;
-                                },
-                            });
-                        },
-                    });
                 });
             }
 
