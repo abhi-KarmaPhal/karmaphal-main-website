@@ -76,6 +76,41 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
   );
 }
 
+const SERVICES_DATA = [
+  {
+    num: "01",
+    name: "Brand Identity",
+    meshClass: "mesh-1",
+    desc: "The soul of your business, built to last decades. From your first mark to your complete visual language — crafted with intention.",
+    btnText: "Build Your Brand",
+    list: ["Logo & Visual Systems", "Strategy & Positioning", "Packaging & Labels", "Icons, Decks, Banners"]
+  },
+  {
+    num: "02",
+    name: "Websites & Apps",
+    meshClass: "mesh-2",
+    desc: "Your hardest-working, most honest salesperson. Designed for beauty, engineered for performance, built to convert.",
+    btnText: "Start Web Project",
+    list: ["Web Design & Development", "Mobile Apps", "E-Commerce", "SaaS & Web Apps"]
+  },
+  {
+    num: "03",
+    name: "Creative Content",
+    meshClass: "mesh-3",
+    desc: "Every post, every day, perfectly and unmistakably on brand. Content that builds equity with every single impression.",
+    btnText: "Plan Content",
+    list: ["Social Media Content", "Ads & Campaigns", "Motion & Video", "Copywriting"]
+  },
+  {
+    num: "04",
+    name: "AI & Systems",
+    meshClass: "mesh-4",
+    desc: "The future, built directly into your business today. Automation and intelligence that compound your competitive advantage daily.",
+    btnText: "Automate Now",
+    list: ["AI Tools", "Automation Systems", "Dashboards", "Custom GPTs"]
+  }
+];
+
 /* ── MAIN ── */
 export default function MonolithHero() {
   const { timeLeft: countdown, mounted } = useCountdown(new Date("2026-03-09T05:55:00+05:30").getTime());
@@ -83,6 +118,7 @@ export default function MonolithHero() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
   const [formMessage, setFormMessage] = useState("");
   const [revealed, setRevealed] = useState(false);
+  const [activeService, setActiveService] = useState(0);
   const isMobile = useIsMobile();
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -536,62 +572,61 @@ export default function MonolithHero() {
           </div>
           <span className="svc-count rv" style={{ transitionDelay: '.15s' }}>04 Disciplines — All In-House</span>
         </div>
-        <div className="svc-rows">
-          {/*  Brand Identity  */}
-          <div className="sr">
-            <div className="sr-face">
-              <span className="sr-num">01</span>
-              <span className="sr-deva">ब्रांड</span>
-              <span className="sr-name">Brand Identity</span>
-              <div className="sr-arr">↗</div>
-            </div>
-            <div className="sr-reveal">
-              <div className="sr-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg></div>
-              <p className="sr-desc">The soul of your business, built to last decades. From your first mark to your complete visual language — crafted with intention.</p>
-              <ul className="sr-list"><li>Logo & Visual Systems</li><li>Strategy & Positioning</li><li>Packaging & Labels</li><li>Icons, Decks, Banners</li></ul>
-            </div>
+        <div className="svc-grid">
+          <div className="svc-list">
+            {SERVICES_DATA.map((s, i) => (
+              <div
+                key={i}
+                className={`sr ${activeService === i ? 'active' : ''}`}
+                onMouseEnter={() => !isMobile && setActiveService(i)}
+                onClick={() => isMobile && setActiveService(activeService === i ? -1 : i)}
+              >
+                <div className="sr-face">
+                  <span className="sr-num">{s.num}</span>
+                  <span className="sr-name">{s.name}</span>
+                  <div className="sr-arr">↗</div>
+                </div>
+                {/* Mobile Accordion Reveal */}
+                <div className={`sr-reveal mobile-only ${activeService === i ? 'open' : ''}`}>
+                  <div className="sr-reveal-inner">
+                    <div className={`sr-hero-visual ${s.meshClass}`}></div>
+                    <div className="sr-content-split">
+                      <div className="sr-pitch-card">
+                        <p className="sr-desc">{s.desc}</p>
+                        <a href="#contact" className="sr-start-btn">{s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                      </div>
+                      <div>
+                        <h4 className="sr-list-header">This package includes:</h4>
+                        <ul className="sr-list">
+                          {s.list.map((item, j) => <li key={j}>{item}</li>)}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          {/*  Websites & Apps  */}
-          <div className="sr" style={{ transitionDelay: '.08s' }}>
-            <div className="sr-face">
-              <span className="sr-num">02</span>
-              <span className="sr-deva">वेब</span>
-              <span className="sr-name">Websites & Apps</span>
-              <div className="sr-arr">↗</div>
-            </div>
-            <div className="sr-reveal">
-              <div className="sr-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg></div>
-              <p className="sr-desc">Your hardest-working, most honest salesperson. Designed for beauty, engineered for performance, built to convert.</p>
-              <ul className="sr-list"><li>Web Design & Development</li><li>Mobile Apps</li><li>E-Commerce</li><li>SaaS & Web Apps</li></ul>
-            </div>
-          </div>
-          {/*  Creative Content  */}
-          <div className="sr" style={{ transitionDelay: '.16s' }}>
-            <div className="sr-face">
-              <span className="sr-num">03</span>
-              <span className="sr-deva">सृजन</span>
-              <span className="sr-name">Creative Content</span>
-              <div className="sr-arr">↗</div>
-            </div>
-            <div className="sr-reveal">
-              <div className="sr-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" /></svg></div>
-              <p className="sr-desc">Every post, every day, perfectly and unmistakably on brand. Content that builds equity with every single impression.</p>
-              <ul className="sr-list"><li>Social Media Content</li><li>Ads & Campaigns</li><li>Motion & Video</li><li>Copywriting</li></ul>
-            </div>
-          </div>
-          {/*  AI & Systems  */}
-          <div className="sr" style={{ transitionDelay: '.24s' }}>
-            <div className="sr-face">
-              <span className="sr-num">04</span>
-              <span className="sr-deva">बुद्धि</span>
-              <span className="sr-name">AI & Systems</span>
-              <div className="sr-arr">↗</div>
-            </div>
-            <div className="sr-reveal">
-              <div className="sr-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" /></svg></div>
-              <p className="sr-desc">The future, built directly into your business today. Automation and intelligence that compound your competitive advantage daily.</p>
-              <ul className="sr-list"><li>AI Tools & Workflows</li><li>Automation Systems</li><li>Dashboards & Analytics</li><li>Custom AI Integration</li></ul>
-            </div>
+
+          {/* Desktop Sticky Stage */}
+          <div className="svc-stage desktop-only">
+            {SERVICES_DATA.map((s, i) => (
+              <div key={i} className={`sr-reveal stage-reveal ${activeService === i ? 'active' : ''}`}>
+                <div className={`sr-hero-visual ${s.meshClass}`}></div>
+                <div className="sr-content-split">
+                  <div className="sr-pitch-card">
+                    <p className="sr-desc">{s.desc}</p>
+                    <a href="#contact" className="sr-start-btn">{s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                  </div>
+                  <div>
+                    <h4 className="sr-list-header">This package includes:</h4>
+                    <ul className="sr-list">
+                      {s.list.map((item, j) => <li key={j}>{item}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <div className="svc-ftr">
@@ -600,7 +635,8 @@ export default function MonolithHero() {
         </div>
       </section>
 
-      <div className="section-blend-dark"></div>
+      <div className="sdiv"></div>
+      <div className="ticker lt" aria-hidden="true"><div className="ticker-t"><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span></div></div>
 
       {/*  ══ TRUST ════════════════════════════════════════════  */}
       <section id="trust">
@@ -628,7 +664,9 @@ export default function MonolithHero() {
         </div>
       </section>
 
+      <div id="cd"></div><div id="cr"></div><div id="noise"></div>
       <div className="sdiv"></div>
+      <div className="ticker dk" aria-hidden="true"><div className="ticker-t"><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span></div></div>
 
       {/*  ══ TESTIMONIALS ══════════════════════════════════════  */}
       <section id="testimonials">
