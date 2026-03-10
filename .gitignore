@@ -5,3 +5,4 @@ build-log.txt
 *.py
 .env
 .env.local
+.agent/
