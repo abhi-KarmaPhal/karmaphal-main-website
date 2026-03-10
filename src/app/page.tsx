@@ -133,6 +133,15 @@ export default function MonolithHero() {
   const logoOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
+  const studioRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: studioScroll } = useScroll({
+    target: studioRef,
+    offset: ["start end", "end start"]
+  });
+  const riverX = useTransform(studioScroll, [0, 1], ["0%", "-40%"]);
+  const studioTitleY = useTransform(studioScroll, [0, 0.4], [50, 0]);
+  const studioTitleOp = useTransform(studioScroll, [0, 0.4], [0, 1]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || formState === "loading") return;
@@ -710,29 +719,76 @@ export default function MonolithHero() {
       <div className="sdiv"></div>
 
       {/*  ══ STUDIO ══════════════════════════════════════════  */}
-      <section id="studio">
+      <section
+        id="studio"
+        ref={studioRef}
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
+          e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
+        }}
+      >
         <AmbientParticles />
         <div className="studio-glow"></div>
+
+        {/* Architectural Hairlines */}
+        <div className="stu-void-line top"></div>
+        <div className="stu-void-line mid"></div>
+        <div className="stu-void-line bot"></div>
+
         <div className="studio-river" aria-hidden="true">
-          <span className="studio-river-txt">कर्म · फल · सृजन · धर्म · ज्ञान · कर्म · फल · सृजन · धर्म</span>
+          <motion.span
+            className="studio-river-txt"
+            style={{ x: riverX }}
+          >
+            कर्म · फल · सृजन · धर्म · ज्ञान · कर्म · फल · सृजन · धर्म · कर्म · फल · सृजन · धर्म · ज्ञान
+          </motion.span>
         </div>
+
         <div className="studio-in">
-          <div className="rv">
+          <motion.div
+            className="rv"
+            style={{ y: studioTitleY, opacity: studioTitleOp }}
+          >
             <div className="stu-tag">§ 006 — Private Digital Studio</div>
-            <h3 className="stu-hed">Built to handle everything<br />so you handle <span className="au">nothing.</span></h3>
-            <div className="stu-quote rv" style={{ transitionDelay: '.3s' }}>
+            <h1 className="stu-hed">
+              Built to handle everything<br />
+              so you handle <span className="au">nothing.</span>
+            </h1>
+
+            <motion.div
+              className="stu-quote"
+              initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+            >
               <span className="stu-q-deva">कर्म ही धर्म है</span>
               <span className="stu-q-en">Your work is your highest duty — we make sure it shines.</span>
-            </div>
-          </div>
-          <div className="rv" style={{ transitionDelay: '.18s' }}>
-            <p className="stu-body">We're not a vendor you hire for a project. We're the digital arm of your business — embedded, trusted, and relentless. From your first logo to your hundredth campaign to your AI infrastructure, we are there.</p>
-            <p className="stu-body">No onboarding. No handoffs. No gaps. Just the extraordinary work of a world-class team who has chosen to be yours — completely and permanently.</p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="rv"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <p className="stu-body">
+              We&apos;re not a vendor you hire for a project. We&apos;re the digital arm of your business — embedded, trusted, and relentless.
+              From your first logo to your hundredth campaign to your AI infrastructure, we are there.
+            </p>
+            <p className="stu-body">
+              No onboarding. No handoffs. No gaps. Just the extraordinary work of a world-class team who has chosen to be yours — completely and permanently.
+            </p>
             <div className="stu-btns">
               <a href="/contact" className="btn-g"><span>Start Today</span></a>
               <a href="/about" className="btn-wh">Our Story</a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
