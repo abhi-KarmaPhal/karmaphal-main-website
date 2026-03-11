@@ -788,6 +788,7 @@ export default function MonolithHero() {
               <a href="/contact" className="btn-g"><span>Start Today</span></a>
               <a href="/about" className="btn-wh">Our Story</a>
             </div>
+            <div className="stu-right-anchor">Karmaphal Private Studio — § 006</div>
           </motion.div>
         </div>
       </section>
