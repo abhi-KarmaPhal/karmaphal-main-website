@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 import CustomCursor from "@/components/CustomCursor";
 import CursorGlow from "@/components/CursorGlow";
 import DivineTorch from "@/components/DivineTorch";
+import SovereignHeader from "@/components/SovereignHeader";
+import SovereignFooter from "@/components/SovereignFooter";
 
 export default function RootLayout({
   children,
@@ -39,7 +41,15 @@ export default function RootLayout({
         <CustomCursor />
         <CursorGlow />
         <DivineTorch />
-        <main>{children}</main>
+        
+        <SovereignHeader />
+        
+        {/* main needs to sit behind the fixed header and above the footer naturally */}
+        <main className="relative z-10 min-h-screen">
+          {children}
+        </main>
+        
+        <SovereignFooter />
       </body>
     </html>
   );

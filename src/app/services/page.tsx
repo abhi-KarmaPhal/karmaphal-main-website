@@ -107,6 +107,7 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
   return (
     <section
       ref={ref}
+      data-header-theme="dark"
       className="relative w-full py-28 md:py-40 px-6 overflow-hidden"
       style={{ borderTop: "1px solid rgba(212,175,55,0.06)" }}
     >
@@ -249,7 +250,7 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="relative w-full min-h-[55vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 overflow-hidden">
+      <section data-header-theme="dark" className="relative w-full min-h-[55vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 60%, rgba(212,175,55,0.05) 0%, transparent 70%)" }} />
 
         <motion.p
@@ -291,7 +292,7 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA */}
-      <section className="relative z-10 w-full py-28 md:py-36 px-6 flex flex-col items-center text-center" style={{ borderTop: "1px solid rgba(212,175,55,0.06)" }}>
+      <section data-header-theme="dark" className="relative z-10 w-full py-28 md:py-36 px-6 flex flex-col items-center text-center" style={{ borderTop: "1px solid rgba(212,175,55,0.06)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(139,26,26,0.07) 0%, transparent 70%)" }} />
 
         <motion.h2
@@ -328,13 +329,7 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 w-full py-10 px-6 flex flex-col items-center gap-4" style={{ borderTop: "1px solid rgba(212,175,55,0.08)" }}>
-        <span style={{ fontFamily: "var(--font-gotu), serif", fontSize: "1.5rem", color: "rgba(212,175,55,0.15)" }}>ॐ</span>
-        <p className="text-[9px] font-[var(--font-cinzel)] tracking-[0.3em] uppercase" style={{ color: "rgba(192,192,192,0.2)" }}>
-          © 2026 KARMAPHAL · ALL RIGHTS RESERVED
-        </p>
-      </footer>
+
     </main>
   );
 }

@@ -1,0 +1,541 @@
+/* ══════════════════════════════════════════════════════
+   CONTACT PAGE V2 — The Editorial Split
+   KarmaPhal Private Digital Studio
+   Asymmetric 50/50 Light/Dark Layout
+══════════════════════════════════════════════════════ */
+
+/* ── LAYOUT GRID ───────────────────────────────────── */
+.ct-split-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .ct-split-main {
+    flex-direction: row;
+  }
+}
+
+/* ── LEFT HALF: THE CANVAS (WHITE) ─────────────────── */
+.ct-canvas {
+  position: relative;
+  background: var(--white); /* #e6e3dd from main site */
+  color: var(--black);
+  padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .ct-canvas {
+    width: 50%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+/* Background OM Watermark */
+.ct-canvas-om {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) translateX(-20%);
+  font-family: var(--font-gotu), 'Noto Serif Devanagari', serif;
+  font-size: clamp(30rem, 60vw, 70rem);
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.02);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Content */
+.ct-canvas-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+}
+
+.ct-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.ct-tag::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ct-headline {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.ct-headline strong {
+  font-weight: 900;
+  display: block;
+  background: linear-gradient(135deg, #A8863A 0%, #D4AF37 50%, #8A6D3B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ct-sub {
+  font-family: var(--font-mono), 'Fira Code', monospace;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 440px;
+}
+
+/* Footer / Direct Contact */
+.ct-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: clamp(4rem, 8vw, auto); /* Pushes to bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .ct-footer {
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.ct-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ct-footer-label {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.ct-footer-link {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  align-self: flex-start;
+  color: var(--black);
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.ct-social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ct-social-link {
+  font-family: var(--font-mono), 'Fira Code', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+/* Framing the text characters */
+.ct-char-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.ct-char {
+  display: inline-block;
+}
+
+.ct-char-alt {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #D4AF37; /* The target gold color */
+}
+
+/* Base line under the link */
+.ct-link-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #D4AF37;
+}
+
+/* ── RIGHT HALF: THE VOID (DARK) ───────────────────── */
+.ct-void {
+  background: var(--black); /* #010101 */
+  color: var(--white);
+  padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 5vw, 6rem);
+  display: flex;
+  align-items: center; /* Center form vertically on long scrolls */
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .ct-void {
+    width: 50%;
+    min-height: 100vh;
+  }
+}
+
+/* Ambient Breathing Glow */
+.ct-void::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: voidBreathe 8s ease-in-out infinite alternate;
+}
+
+/* Faint Technical Grid */
+.ct-void::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+  /* Vignette mask so the grid fades out at edges */
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+@keyframes voidBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.ct-form-wrap {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10; /* Above the ambient layers */
+}
+
+/* Inputs - Highly Visible & Crisp */
+.ct-field {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.ct-label {
+  display: block;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8); /* High contrast */
+  margin-bottom: 0.8rem;
+  transition: color 0.4s ease;
+}
+
+.ct-field:focus-within .ct-label {
+  color: #D4AF37;
+}
+
+.ct-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  padding: 0.5rem 0 1rem;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.4s ease;
+  caret-color: #D4AF37;
+}
+
+.ct-input::placeholder {
+  color: rgba(255, 255, 255, 0.15);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Animated Underline */
+.ct-input-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #D4AF37;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  /* Adding a very subtle glow for visibility */
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.ct-input:focus ~ .ct-input-line {
+  width: 100%;
+}
+
+.ct-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Minimalist Selector Pills */
+.ct-glyphs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.ct-glyph {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-mono), 'Fira Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.02); /* Slight lift from pure black */
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Shimmer pseudo-element */
+.ct-glyph::before {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.ct-glyph:hover::before {
+  transform: translateX(100%);
+}
+
+.ct-glyph-sym,
+.ct-glyph {
+  /* Ensure text is above the shimmer */
+  z-index: 1;
+}
+
+/* Premium Hover State */
+.ct-glyph:hover {
+  border-color: rgba(212, 175, 55, 0.5); /* Hint of gold */
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+/* Gold active state */
+.ct-glyph.selected {
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.08);
+  color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.ct-glyph-sym {
+  font-family: var(--font-gotu), 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+}
+
+.ct-glyph.selected .ct-glyph-sym {
+  opacity: 1;
+}
+
+/* Submit Button */
+.ct-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  background: #D4AF37;
+  color: #010101;
+  border: none;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  border-radius: 1px;
+}
+
+.ct-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #A8863A, #D4AF37, #F9E2AF, #D4AF37);
+  background-size: 200% 100%;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.ct-submit:hover::before {
+  opacity: 1;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.ct-submit span {
+  position: relative;
+  z-index: 2;
+  transition: letter-spacing 0.5s ease;
+}
+
+.ct-submit:hover span {
+  letter-spacing: 0.45em;
+}
+
+.ct-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Response Note */
+.ct-note {
+  font-family: var(--font-mono), 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin-top: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── SUCCESS STATE ─────────────────────────────────── */
+.ct-success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.ct-success-om {
+  font-family: var(--font-gotu), 'Noto Serif Devanagari', serif;
+  font-size: clamp(4rem, 8vw, 6rem);
+  color: #D4AF37;
+  margin-bottom: 2rem;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ct-success-title {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ct-success-body {
+  font-family: var(--font-mono), 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 400px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ct-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.5);
+  margin: 2rem 0;
+  opacity: 0;
+  animation: fadeUp 1s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ct-motto {
+  font-family: var(--font-gotu), 'Noto Serif Devanagari', serif;
+  font-size: 0.8rem;
+  color: rgba(212, 175, 55, 0.4);
+  letter-spacing: 0.4em;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

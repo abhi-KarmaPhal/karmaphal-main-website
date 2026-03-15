@@ -37,7 +37,7 @@ export default function AboutPage() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 overflow-hidden">
+      <section data-header-theme="dark" className="relative w-full min-h-[70vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 overflow-hidden">
         {/* Background geometry */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06]">
           <svg viewBox="0 0 1000 1000" className="w-[100vh] h-[100vh]">
@@ -89,7 +89,7 @@ export default function AboutPage() {
       <SacredDivider />
 
       {/* ── THE PHILOSOPHY ── */}
-      <section className="relative z-10 w-full py-20 md:py-28 px-6">
+      <section data-header-theme="dark" className="relative z-10 w-full py-20 md:py-28 px-6">
         <div className="max-w-3xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -160,7 +160,7 @@ export default function AboutPage() {
       <SacredDivider />
 
       {/* ── WHAT WE BELIEVE ── */}
-      <section className="relative z-10 w-full py-20 md:py-28 px-6">
+      <section data-header-theme="dark" className="relative z-10 w-full py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -209,7 +209,7 @@ export default function AboutPage() {
       <SacredDivider />
 
       {/* ── CTA ── */}
-      <section className="relative z-10 w-full py-24 md:py-32 px-6 flex flex-col items-center text-center">
+      <section data-header-theme="dark" className="relative z-10 w-full py-24 md:py-32 px-6 flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -253,13 +253,7 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 w-full py-10 px-6 flex flex-col items-center gap-4" style={{ borderTop: "1px solid rgba(212,175,55,0.08)" }}>
-        <span style={{ fontFamily: "var(--font-gotu), serif", fontSize: "1.5rem", color: "rgba(212,175,55,0.15)" }}>ॐ</span>
-        <p className="text-[9px] font-[var(--font-cinzel)] tracking-[0.3em] uppercase" style={{ color: "rgba(192,192,192,0.2)" }}>
-          © 2026 KARMAPHAL · ALL RIGHTS RESERVED
-        </p>
-      </footer>
+
     </main>
   );
 }
