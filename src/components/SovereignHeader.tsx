@@ -1,43 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
-
-type Theme = "dark" | "light";
+import { useState, useEffect } from "react";
 
 // ─── Animated Nav Link ────────────────────────────────────────────────────────
-function AnimatedNavLink({ href, text, theme }: { href: string; text: string; theme: Theme }) {
-  // theme here is the BACKGROUND SECTION theme.
-  // Because our header *contrasts* with the section:
-  // Dark section -> White Header -> Black text
-  // Light section -> Black Header -> White text
-  
-  const isDarkSection = theme === "dark";
-  const baseColor = isDarkSection ? "#0a0a0a" : "#ffffff";
-  // The user asked for "dark color hovering effects". We will use a sleek dark/light grey for the hidden animated text.
-  const hoverSlideColor = isDarkSection ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.4)";
-  const underlineColor = isDarkSection ? "#0a0a0a" : "#ffffff";
+function AnimatedNavLink({ href, text, onClick }: { href: string; text: string; onClick?: () => void }) {
+  const baseColor = "#e6e3dd"; // Universal off-white
+  const hoverColor = "#D4AF37"; // Universal Gold
+  const underlineColor = "#D4AF37";
 
   return (
     <motion.div initial="rest" whileHover="hover" animate="rest">
-      <Link href={href} className="relative inline-block overflow-hidden py-1 group">
-        <span className="flex font-mono text-[10px] tracking-[0.25em] uppercase">
+      <Link 
+        href={href} 
+        onClick={onClick}
+        className="relative inline-block overflow-hidden py-1 group"
+      >
+        <span className="flex font-mono text-[10px] md:text-[10px] text-[14px] tracking-[0.25em] uppercase">
           {text.split("").map((char, i) => (
             <span key={i} className="relative inline-block overflow-hidden">
-              {/* Original visible text */}
               <motion.span
-                className="inline-block transition-colors duration-500 font-bold"
+                className="inline-block transition-colors duration-500"
                 style={{ color: baseColor }}
                 variants={{ rest: { y: 0, opacity: 1 }, hover: { y: "-100%", opacity: 0 } }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: i * 0.02 }}
               >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
-              {/* Hover slide-in text */}
               <motion.span
-                className="absolute top-0 left-0 inline-block font-bold"
-                style={{ color: hoverSlideColor }}
+                className="absolute top-0 left-0 inline-block"
+                style={{ color: hoverColor }}
                 variants={{ rest: { y: "100%", opacity: 0 }, hover: { y: 0, opacity: 1 } }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: i * 0.02 }}
               >
@@ -46,7 +39,6 @@ function AnimatedNavLink({ href, text, theme }: { href: string; text: string; th
             </span>
           ))}
         </span>
-        {/* Underline reveal */}
         <motion.div
           className="absolute bottom-0 left-0 w-full h-[1px]"
           style={{ backgroundColor: underlineColor }}
@@ -60,150 +52,149 @@ function AnimatedNavLink({ href, text, theme }: { href: string; text: string; th
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function SovereignHeader() {
-  const [theme, setTheme] = useState<Theme>("dark");
   const [visible, setVisible] = useState(false);
-
-  const detectTheme = useCallback(() => {
-    const sampleY = 50; // vertical midpoint of header
-
-    // 1. Check if manifesto section is currently inverted (GSAP light flash)
-    const manifesto = document.getElementById("manifesto");
-    if (manifesto) {
-      const rect = manifesto.getBoundingClientRect();
-      if (rect.top <= sampleY && rect.bottom >= sampleY) {
-        // If GSAP has applied the .inverted class (light background revealed)
-        const isInverted = manifesto.classList.contains("inverted");
-        setTheme(isInverted ? "light" : "dark");
-        return;
-      }
-    }
-
-    // 2. Check all other [data-header-theme] sections
-    const sections = document.querySelectorAll<HTMLElement>("[data-header-theme]");
-    for (const section of sections) {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= sampleY && rect.bottom >= sampleY) {
-        setTheme((section.getAttribute("data-header-theme") as Theme) ?? "dark");
-        return;
-      }
-    }
-  }, []);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Staggered entrance
-    const t = setTimeout(() => setVisible(true), 200);
+    const t = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
 
-    detectTheme();
-    window.addEventListener("scroll", detectTheme, { passive: true });
-    window.addEventListener("resize", detectTheme, { passive: true });
-
-    // Watch for GSAP toggling the .inverted class on #manifesto
-    const manifesto = document.getElementById("manifesto");
-    let observer: MutationObserver | null = null;
-    if (manifesto) {
-      observer = new MutationObserver(detectTheme);
-      observer.observe(manifesto, { attributes: true, attributeFilter: ["class"] });
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
+  }, [isMobileMenuOpen]);
 
-    return () => {
-      clearTimeout(t);
-      window.removeEventListener("scroll", detectTheme);
-      window.removeEventListener("resize", detectTheme);
-      observer?.disconnect();
-    };
-  }, [detectTheme]);
-
-  // ── Theme tokens (INVERTED HIGH-CONTRAST) ──
-  // The header deliberately contrasts the section background.
-  const isDarkSection = theme === "dark";
-
-  const headerBg = isDarkSection
-    ? "rgba(255, 255, 255, 1)"  // Solid White header over dark sections
-    : "rgba(0, 0, 0, 1)";       // Solid Black header over light sections
-
-  const headerBorder = isDarkSection
-    ? "rgba(0, 0, 0, 0.05)"
-    : "rgba(255, 255, 255, 0.05)";
-
-  const logoColor = isDarkSection ? "#0a0a0a" : "#ffffff";
-  const ctaColor = isDarkSection ? "#0a0a0a" : "#ffffff";
-  const ctaBorder = isDarkSection ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.3)";
-  
-  // CTA Hover state logic
-  const ctaHoverBg = isDarkSection ? "#0a0a0a" : "#ffffff";
-  const ctaHoverText = isDarkSection ? "#ffffff" : "#000000";
+  // ── Universal Theme tokens ──
+  const headerBg = "rgba(10, 10, 10, 0.45)"; // Deep Obsidian Glass
+  const headerBorder = "rgba(255, 255, 255, 0.05)";
+  const logoColor = "#e6e3dd";
+  const ctaColor = "#D4AF37";
+  const ctaBorder = "rgba(212, 175, 55, 0.4)";
 
   return (
-    <motion.header
-      className="fixed top-0 left-0 w-full z-[200] pointer-events-none"
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: visible ? 1 : 0 }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {/* ── Animated background bar ── */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          backgroundColor: headerBg,
-          borderBottomColor: headerBorder,
-        }}
-        style={{ borderBottom: `1px solid ${headerBorder}` }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-      />
+    <>
+      <motion.header
+        className="fixed top-0 left-0 w-full z-[200] pointer-events-none"
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: visible ? 1 : 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {/* ── Frosted Background Bar ── */}
+        <div 
+          className="absolute inset-0"
+          style={{ 
+            backgroundColor: headerBg, 
+            borderBottom: `1px solid ${headerBorder}`,
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)" // for safari
+          }}
+        />
 
-      {/* ── Content (re-enables pointer events) ── */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 py-5 flex items-center justify-between pointer-events-auto">
+        {/* ── Content ── */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12 py-5 flex items-center justify-between pointer-events-auto">
 
-        {/* LOGO */}
-        <motion.div
-          animate={{ color: logoColor }}
-          transition={{ duration: 0.5 }}
-        >
-          <Link
-            href="/"
-            className="font-cinzel text-lg md:text-xl font-bold tracking-[0.18em] uppercase hover:opacity-70 transition-opacity duration-500"
-            style={{ color: "inherit" }}
+          {/* LOGO */}
+          <div>
+            <Link
+              href="/"
+              className="font-cinzel text-lg md:text-xl font-bold tracking-[0.18em] uppercase hover:opacity-70 transition-opacity duration-500"
+              style={{ color: logoColor }}
+            >
+              Karmaphal
+            </Link>
+          </div>
+
+          {/* RIGHT: Nav + CTA (Desktop) */}
+          <div className="hidden md:flex items-center gap-10">
+            <nav className="flex items-center gap-10">
+              <AnimatedNavLink href="/services" text="Services" />
+              <AnimatedNavLink href="/about" text="About" />
+              <AnimatedNavLink href="/contact" text="Contact" />
+            </nav>
+
+            <motion.div whileHover="hover" initial="rest" animate="rest">
+              <Link
+                href="/contact"
+                className="font-mono text-[9px] tracking-[0.3em] uppercase px-6 py-2.5 transition-all duration-500 block relative"
+                style={{ border: `1px solid ${ctaBorder}` }}
+              >
+                <motion.div 
+                  className="absolute inset-0 bg-[#D4AF37]"
+                  variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
+                  transition={{ duration: 0.4 }}
+                />
+                <motion.span 
+                  className="relative z-10 block"
+                  style={{ color: ctaColor }}
+                  variants={{ rest: { color: ctaColor }, hover: { color: "#000000" } }}
+                  transition={{ duration: 0.4 }}
+                >
+                  Initiate
+                </motion.span>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* MOBILE TOGGLE */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden font-mono text-[10px] uppercase tracking-widest relative z-50 flex items-center gap-2"
+            style={{ color: logoColor }}
           >
-            Karmaphal
-          </Link>
-        </motion.div>
-
-        {/* RIGHT: Nav + CTA */}
-        <div className="hidden md:flex items-center gap-10">
-          <nav className="flex items-center gap-10">
-            <AnimatedNavLink href="/services" text="Services" theme={theme} />
-            <AnimatedNavLink href="/about" text="About" theme={theme} />
-            <AnimatedNavLink href="/contact" text="Contact" theme={theme} />
-          </nav>
-
-          <Link
-            href="/contact"
-            className="font-mono text-[9px] tracking-[0.3em] font-bold uppercase px-6 py-2.5 transition-all duration-500"
-            style={{ color: ctaColor, border: `1px solid ${ctaBorder}` }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = ctaHoverBg;
-              e.currentTarget.style.color = ctaHoverText;
-              e.currentTarget.style.borderColor = ctaHoverBg;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = ctaColor;
-              e.currentTarget.style.borderColor = ctaBorder;
-            }}
-          >
-            Initiate
-          </Link>
+            <span>{isMobileMenuOpen ? "Close" : "Menu"}</span>
+            <div className="flex flex-col gap-1 w-4">
+              <motion.div 
+                className="h-px w-full bg-current" 
+                animate={isMobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
+              />
+              <motion.div 
+                className="h-px w-full bg-current" 
+                animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              />
+              <motion.div 
+                className="h-px w-full bg-current" 
+                animate={isMobileMenuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
+              />
+            </div>
+          </button>
         </div>
+      </motion.header>
 
-        {/* MOBILE */}
-        <motion.button
-          className="md:hidden font-mono text-[10px] uppercase font-bold tracking-widest"
-          animate={{ color: logoColor }}
-          transition={{ duration: 0.5 }}
-        >
-          Menu
-        </motion.button>
-      </div>
-    </motion.header>
+      {/* ── MOBILE MENU OVERLAY ── */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[190] bg-black flex flex-col items-center justify-center pointer-events-auto"
+          >
+            {/* Background elements (Optional) */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_70%)]" />
+            </div>
+
+            <nav className="flex flex-col items-center gap-12 relative z-10">
+              <AnimatedNavLink href="/services" text="Services" onClick={() => setIsMobileMenuOpen(false)} />
+              <AnimatedNavLink href="/about" text="About" onClick={() => setIsMobileMenuOpen(false)} />
+              <AnimatedNavLink href="/contact" text="Contact" onClick={() => setIsMobileMenuOpen(false)} />
+              
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-4 font-mono text-[11px] tracking-[0.4em] uppercase px-12 py-4 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500"
+              >
+                Initiate
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

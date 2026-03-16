@@ -288,7 +288,7 @@ export default function MonolithHero() {
       {/* ═══════════════════════════════════════════
           SECTION 1: CINEMATIC HERO — FULL VIEWPORT
       ═══════════════════════════════════════════ */}
-      <section ref={heroRef} data-header-theme="dark" className="relative h-[100dvh] w-full overflow-hidden bg-obsidian">
+      <section ref={heroRef} className="relative h-[100dvh] w-full overflow-hidden bg-obsidian">
 
         {/* OPTICAL CENTERING WRAPPER (Shifts content up on tall mobile screens) */}
         <div className="absolute inset-0 flex flex-col items-center justify-center -translate-y-[6vh] md:translate-y-0">

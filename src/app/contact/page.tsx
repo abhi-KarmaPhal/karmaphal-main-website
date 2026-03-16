@@ -99,7 +99,7 @@ export default function ContactPage() {
     <main className="ct-split-main">
       
       {/* ── LEFT HALF: THE CANVAS (WHITE) ── */}
-      <section data-header-theme="light" className="ct-canvas">
+      <section className="ct-canvas">
         {/* Faint OM Watermark Background */}
         <div className="ct-canvas-om">ॐ</div>
         
@@ -143,7 +143,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── RIGHT HALF: THE VOID (DARK) ── */}
-      <section data-header-theme="dark" className="ct-void">
+      <section className="ct-void">
         <div className="ct-form-wrap">
           {state === "success" ? (
             /* SUCCESS STATE */
