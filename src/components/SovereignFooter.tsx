@@ -87,27 +87,30 @@ export default function SovereignFooter() {
             </div>
           </div>
 
-          <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-6">Navigation</h4>
-            <ul className="space-y-4 font-mono text-sm uppercase tracking-widest">
-              <li><AnimatedFooterLink href="/services" text="Services" /></li>
-              <li><AnimatedFooterLink href="/about" text="About" /></li>
-              <li><AnimatedFooterLink href="/contact" text="Initiate" /></li>
-              <li><AnimatedFooterLink href="/vault/export-manifesto" text="Manifesto" /></li>
-            </ul>
-          </div>
+          {/* Links & Network Group - Side by Side on Mobile */}
+          <div className="grid grid-cols-2 md:contents gap-8">
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-6">Navigation</h4>
+              <ul className="space-y-4 font-mono text-sm uppercase tracking-widest">
+                <li><AnimatedFooterLink href="/services" text="Services" /></li>
+                <li><AnimatedFooterLink href="/about" text="About" /></li>
+                <li><AnimatedFooterLink href="/contact" text="Initiate" /></li>
+                <li><AnimatedFooterLink href="/vault/export-manifesto" text="Manifesto" /></li>
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-6">Network</h4>
-            <ul className="space-y-4 font-mono text-sm uppercase tracking-widest">
-              <li><AnimatedFooterLink href="https://instagram.com/houseofkarmaphal" text="Instagram" external /></li>
-              <li><AnimatedFooterLink href="https://linkedin.com/company/houseofkarmaphal" text="LinkedIn" external /></li>
-              <li><AnimatedFooterLink href="https://x.com/karmaphal_hq" text="Twitter / X" external /></li>
-            </ul>
-            
-            <div className="mt-12">
-              <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-2">Local Time</h4>
-              <p className="font-mono text-sm text-[#D4AF37]">{time || "00:00 IST"}</p>
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-6">Network</h4>
+              <ul className="space-y-4 font-mono text-sm uppercase tracking-widest">
+                <li><AnimatedFooterLink href="https://instagram.com/houseofkarmaphal" text="Instagram" external /></li>
+                <li><AnimatedFooterLink href="https://linkedin.com/company/houseofkarmaphal" text="LinkedIn" external /></li>
+                <li><AnimatedFooterLink href="https://x.com/karmaphal_hq" text="Twitter / X" external /></li>
+              </ul>
+              
+              <div className="mt-12">
+                <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 mb-2">Local Time</h4>
+                <p className="font-mono text-sm text-[#D4AF37]">{time || "00:00 IST"}</p>
+              </div>
             </div>
           </div>
 

@@ -539,7 +539,7 @@ export default function MonolithHero() {
           <div className="met-hdr">
             <div>
               <div className="met-tag">§ 002 — Why It Works</div>
-              <h2 className="met-title">Numbers that speak<br /><em>without apology.</em></h2>
+              <h2 className="met-title">Numbers that speak<br /><span className="au">without apology.</span></h2>
             </div>
             <p className="met-note">Every number here is a promise — not a pitch.</p>
           </div>
@@ -603,7 +603,7 @@ export default function MonolithHero() {
         <div className="svc-hdr rv">
           <div>
             <div className="svc-tag">§ 003 — What We Handle</div>
-            <h2 className="svc-title">Everything<br /><em>digital.</em></h2>
+            <h2 className="svc-title">Everything<br /><span className="au">digital.</span></h2>
           </div>
           <span className="svc-count rv" style={{ transitionDelay: '.15s' }}>04 Disciplines — All In-House</span>
         </div>
@@ -708,7 +708,7 @@ export default function MonolithHero() {
         <div className="tes-hdr rv">
           <div>
             <div className="tes-tag">§ 005 — Client Stories</div>
-            <h2 className="tes-title">Trusted by<br /><em>ambitious brands.</em></h2>
+            <h2 className="tes-title">Trusted by<br /><span className="au">ambitious brands.</span></h2>
           </div>
         </div>
         <div className="tes-grid">
@@ -812,8 +812,8 @@ export default function MonolithHero() {
               No onboarding. No handoffs. No gaps. Just the extraordinary work of a world-class team who has chosen to be yours — completely and permanently.
             </p>
             <div className="stu-btns">
-              <a href="/contact" className="btn-g"><span>Start Today</span></a>
-              <a href="/about" className="btn-wh">Our Story</a>
+              <a href="/contact" className="btn-blk"><span>Start Today</span></a>
+              <a href="/about" className="btn-ghost-wh">Our Story</a>
             </div>
             <div className="stu-right-anchor">Karmaphal Private Studio — § 006</div>
           </motion.div>
