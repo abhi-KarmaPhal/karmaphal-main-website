@@ -97,19 +97,18 @@ function VerseCounter({ totalDuration, phase }: { totalDuration: number; phase: 
   }, [totalDuration]);
 
   const wordDelays = [0.3, 1.4, 2.4, 3.2];
-  const philoDelays = [3.5, 4.0, 4.5];
 
   return (
     <motion.div
       className="absolute bottom-8 md:bottom-12 left-0 right-0 flex flex-col items-center gap-3 z-10 px-6"
       initial={{ opacity: 0 }}
       animate={
-        phase === "collapse" || phase === "brand" || phase === "reveal"
+        phase === "collapse" || phase === "reveal"
           ? { opacity: 0, y: -20 }
           : { opacity: 1 }
       }
       transition={
-        phase === "collapse" || phase === "brand" || phase === "reveal"
+        phase === "collapse" || phase === "reveal"
           ? { duration: 0.4 }
           : { duration: 0.5, delay: 0.2 }
       }
@@ -150,26 +149,6 @@ function VerseCounter({ totalDuration, phase }: { totalDuration: number; phase: 
         style={{ background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent)" }}
       />
 
-      {/* PHILOSOPHY */}
-      <div className="flex flex-col items-center gap-1">
-        {PHILOSOPHY_PARTS.map((line, i) => (
-          <span key={i} className="inline-block overflow-hidden">
-            <motion.span
-              className={`inline-block text-[10px] md:text-xs tracking-[0.25em] ${
-                i === 2
-                  ? "font-[var(--font-cinzel)] font-bold text-white/90"
-                  : "font-[var(--font-cinzel)] text-[#C0C0C0]/60"
-              }`}
-              initial={{ y: "110%", opacity: 0 }}
-              animate={{ y: "0%", opacity: 1 }}
-              transition={{ duration: 0.5, delay: philoDelays[i], ease: [0.22, 1, 0.36, 1] }}
-            >
-              {line}
-            </motion.span>
-          </span>
-        ))}
-      </div>
-
       {/* COUNTER */}
       <motion.span
         className="text-[10px] md:text-xs font-[var(--font-mono)] tracking-[0.5em] tabular-nums text-[#D4AF37]/50 mt-1"
@@ -187,18 +166,17 @@ function VerseCounter({ totalDuration, phase }: { totalDuration: number; phase: 
    MAIN PRELOADER
    ══════════════════════════════════════ */
 export default function Preloader({ onReveal }: { onReveal?: () => void }) {
-  const [phase, setPhase] = useState<"draw" | "flash" | "collapse" | "brand" | "reveal" | "done">("draw");
+  const [phase, setPhase] = useState<"draw" | "flash" | "collapse" | "reveal" | "done">("draw");
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase("flash"), 5200);
     const t2 = setTimeout(() => setPhase("collapse"), 5600);
-    const t3 = setTimeout(() => setPhase("brand"), 6000);
-    const t4 = setTimeout(() => {
+    const t3 = setTimeout(() => {
       setPhase("reveal");
       onReveal?.();
-    }, 8500);
-    const t5 = setTimeout(() => setPhase("done"), 10000);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
+    }, 6000);
+    const t4 = setTimeout(() => setPhase("done"), 7500);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, [onReveal]);
 
   if (phase === "done") return null;
@@ -239,7 +217,7 @@ export default function Preloader({ onReveal }: { onReveal?: () => void }) {
           )}
 
           {/* ── SHOCKWAVE ── */}
-          {(phase === "collapse" || phase === "brand") && (
+          {(phase === "collapse" || phase === "reveal") && (
             <motion.div
               className="absolute rounded-full z-20"
               initial={{ width: 10, height: 10, opacity: 0.9 }}
@@ -309,68 +287,7 @@ export default function Preloader({ onReveal }: { onReveal?: () => void }) {
             </motion.div>
           )}
 
-          {/* ── BRAND + PHILOSOPHY (hold 2.5s, then reveal transition) ── */}
-          {(phase === "brand" || phase === "reveal") && (
-            <motion.div
-              className="absolute flex flex-col items-center gap-5 z-30"
-              initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-              animate={
-                phase === "reveal"
-                  ? { opacity: 0, scale: 1.2, filter: "blur(20px)" }
-                  : { opacity: 1, scale: 1, filter: "blur(0px)" }
-              }
-              transition={
-                phase === "reveal"
-                  ? { duration: 1.2, ease: "easeInOut" }
-                  : { duration: 0.5, ease: "easeOut" }
-              }
-            >
-              {/* BRAND */}
-              <div className="flex items-baseline gap-2 md:gap-3">
-                <span
-                  className="text-4xl md:text-7xl font-[var(--font-gotu)]"
-                  style={{
-                    background: "linear-gradient(180deg, #FFF 0%, #F9E2AF 30%, #D4AF37 60%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    filter: "drop-shadow(0 0 40px rgba(212,175,55,0.5))",
-                    lineHeight: 1.4,
-                    paddingTop: "0.3em",
-                  }}
-                >
-                  कर्म
-                </span>
-                <span
-                  className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white mb-2 md:mb-3 flex-shrink-0"
-                  style={{ boxShadow: "0 0 15px #D4AF37" }}
-                />
-                <span
-                  className="text-3xl md:text-6xl font-[var(--font-cinzel)] font-black uppercase tracking-[0.1em]"
-                  style={{
-                    background: "linear-gradient(180deg, #FFF 0%, #F9E2AF 30%, #D4AF37 60%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    filter: "drop-shadow(0 0 40px rgba(212,175,55,0.5))",
-                  }}
-                >
-                  Phal
-                </span>
-              </div>
-
-              {/* PHILOSOPHY */}
-              <motion.p
-                className="text-[10px] md:text-xs font-[var(--font-cinzel)] tracking-[0.25em] text-[#C0C0C0]/70 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                Action is the seed. Result is the fruit.{" "}
-                <span className="text-white/90 font-bold">We architect both.</span>
-              </motion.p>
-            </motion.div>
-          )}
+          {/* ── BRAND + PHILOSOPHY (REMOVE REDUNDANT) ── */}
 
           {/* ── AMBIENT GLOW ── */}
           <motion.div
@@ -379,7 +296,7 @@ export default function Preloader({ onReveal }: { onReveal?: () => void }) {
             animate={
               phase === "flash"
                 ? { opacity: 0.8, scale: 2 }
-                : phase === "collapse" || phase === "brand"
+                : phase === "collapse" || phase === "reveal"
                 ? { opacity: 0, scale: 3 }
                 : { opacity: 0.12 }
             }

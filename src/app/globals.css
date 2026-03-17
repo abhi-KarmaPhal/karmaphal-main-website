@@ -9,12 +9,28 @@
   --white: #FFFFFF;
 }
 
+@layer base {
+  body {
+    @apply bg-obsidian text-white overflow-x-hidden;
+  }
+
+  /* PRELOADER LOCKS ── Hides header, footer and scrollbar while geometry is drawing */
+  body.is-loading {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+
+  body.is-loading header,
+  body.is-loading footer,
+  body.is-loading .sovereign-nav {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+
 body {
-  background-color: var(--obsidian);
-  color: var(--silver);
   font-family: var(--font-cinzel), serif;
   margin: 0;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 

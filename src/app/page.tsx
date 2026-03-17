@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import SacredGeometry from "../components/SacredGeometry";
@@ -118,9 +118,36 @@ export default function MonolithHero() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
   const [formMessage, setFormMessage] = useState("");
   const [revealed, setRevealed] = useState(false);
+  const [shouldShowLoader, setShouldShowLoader] = useState(true);
   const [activeService, setActiveService] = useState(0);
   const isMobile = useIsMobile();
   const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hasSeenLoader = sessionStorage.getItem("monolith-loader-seen");
+    if (hasSeenLoader) {
+      setRevealed(true);
+      setShouldShowLoader(false);
+      document.body.classList.remove("is-loading");
+    } else {
+      document.body.classList.add("is-loading");
+    }
+
+    // Safety: always ensure we start at top
+    window.scrollTo(0, 0);
+
+    return () => {
+      document.body.classList.remove("is-loading");
+    };
+  }, []);
+
+  const handleReveal = useCallback(() => {
+    setRevealed(true);
+    sessionStorage.setItem("monolith-loader-seen", "true");
+    document.body.classList.remove("is-loading");
+    // Snap to top to prevent "scroll-through" during loader
+    window.scrollTo(0, 0);
+  }, []);
 
   // On mobile, skip the feTurbulence SVG filter — it forces CPU rasterization on
   // Safari which causes a full-page repaint blink every time any animation ends.
@@ -189,7 +216,6 @@ export default function MonolithHero() {
     }
   };
 
-  const handleReveal = useCallback(() => setRevealed(true), []);
 
   // GSAP ScrollTrigger animations for all V12 sections
   useScrollAnimations();
@@ -272,7 +298,7 @@ export default function MonolithHero() {
 
   return (
     <>
-      <Preloader onReveal={handleReveal} />
+      {shouldShowLoader && <Preloader onReveal={handleReveal} />}
       <SmoothScroll />
       <DivineEmbers revealed={revealed} />
 

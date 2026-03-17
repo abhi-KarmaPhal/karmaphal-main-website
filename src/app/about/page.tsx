@@ -209,7 +209,7 @@ export default function AboutPage() {
             The name means what it says. Your actions have results. We are the architecture between the two.
           </motion.p>
         </div>
-        <motion.div animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }} className="absolute bottom-10 w-px h-16 bg-gradient-to-b from-[#D4AF37] to-transparent" />
+        <motion.div animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }} className="absolute bottom-10 w-px h-16 bg-gradient-to-b from-[#D4AF37] to-transparent z-20" />
       </section>
 
       <div className="relative z-10">
