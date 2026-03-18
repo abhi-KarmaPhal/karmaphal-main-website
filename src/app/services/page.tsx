@@ -129,6 +129,52 @@ function FloatingMonolith({ theme }: { theme: "dark" | "light" }) {
   );
 }
 
+function ServicesGeometry() {
+  const { scrollY } = useScroll();
+  const rotate1 = useTransform(scrollY, [0, 1000], [0, 45]);
+  const rotate2 = useTransform(scrollY, [0, 1000], [45, 0]);
+  const scale = useTransform(scrollY, [0, 1000], [1, 1.15]);
+  const opacity = useTransform(scrollY, [0, 800], [0.8, 0]);
+
+  return (
+    <motion.div 
+      style={{ scale, opacity }}
+      className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+    >
+      <svg viewBox="0 0 1000 1000" className="w-[110vh] h-[110vh] max-w-full opacity-80 -translate-y-16 md:translate-y-0">
+        {/* Core Axis Lines */}
+        <line x1="500" y1="0" x2="500" y2="1000" stroke="#D4AF37" strokeWidth="0.5" strokeOpacity="0.3" />
+        <line x1="0" y1="500" x2="1000" y2="500" stroke="#D4AF37" strokeWidth="0.5" strokeOpacity="0.3" />
+        
+        {/* Slowly rotating outer structural square */}
+        <motion.g style={{ rotate: rotate1, transformOrigin: "500px 500px" }}>
+          <rect x="150" y="150" width="700" height="700" fill="none" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.4" />
+        </motion.g>
+        
+        {/* Inner static nested squares */}
+        <rect x="250" y="250" width="500" height="500" fill="none" stroke="#D4AF37" strokeWidth="0.3" strokeOpacity="0.2" />
+        <rect x="350" y="350" width="300" height="300" fill="none" stroke="#D4AF37" strokeWidth="0.3" strokeOpacity="0.2" />
+
+        {/* Counter-rotating outer diamond */}
+        <motion.g style={{ rotate: rotate2, transformOrigin: "500px 500px" }}>
+          <rect x="150" y="150" width="700" height="700" fill="none" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.5" />
+        </motion.g>
+
+        {/* Floating Interface Nodes */}
+        <circle cx="150" cy="150" r="3" fill="#D4AF37" fillOpacity="0.6" />
+        <circle cx="850" cy="150" r="3" fill="#D4AF37" fillOpacity="0.6" />
+        <circle cx="150" cy="850" r="3" fill="#D4AF37" fillOpacity="0.6" />
+        <circle cx="850" cy="850" r="3" fill="#D4AF37" fillOpacity="0.6" />
+        <circle cx="500" cy="500" r="5" fill="#D4AF37" fillOpacity="0.8" />
+        
+        {/* Radiating concentric rings to give depth */}
+        <circle cx="500" cy="500" r="100" fill="none" stroke="#D4AF37" strokeWidth="0.5" strokeOpacity="0.5" />
+        <circle cx="500" cy="500" r="450" fill="none" stroke="#D4AF37" strokeWidth="0.3" strokeOpacity="0.2" strokeDasharray="4 8" />
+      </svg>
+    </motion.div>
+  );
+}
+
 function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index: number }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -139,11 +185,11 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
   const theme = isEven ? "dark" : "light";
   
   const bgColor = theme === "dark" ? "#010101" : "#e6e3dd";
-  const textColor = theme === "dark" ? "#ffffff" : "#1a1a1a";
-  const subTextColor = theme === "dark" ? "rgba(230, 227, 221, 0.85)" : "rgba(26, 26, 26, 0.8)";
-  const accentColor = "#D4AF37";
+  const textColor = theme === "dark" ? "#ffffff" : "#111111";
+  const subTextColor = theme === "dark" ? "rgba(255, 255, 255, 0.85)" : "rgba(17, 17, 17, 0.9)";
+  const accentColor = theme === "dark" ? "#D4AF37" : "#94771C";
   const cardBg = theme === "dark" ? "rgba(255, 255, 255, 0.02)" : "rgba(0, 0, 0, 0.02)";
-  const cardBorder = theme === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
+  const cardBorder = theme === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.12)";
 
   return (
     <section
@@ -173,9 +219,10 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
           fontFamily: "var(--font-cinzel), serif",
           fontSize: "clamp(12rem, 30vw, 25rem)",
           fontWeight: "900",
-          color: theme === "dark" ? "rgba(212,175,55,0.03)" : "rgba(0,0,0,0.04)",
+          color: theme === "dark" ? "rgba(212,175,55,0.06)" : "rgba(0,0,0,0.08)",
           lineHeight: 1,
-          WebkitTextStroke: theme === "dark" ? "1px rgba(212,175,55,0.05)" : "1px rgba(0,0,0,0.05)",
+          WebkitTextStroke: theme === "dark" ? "1px rgba(212,175,55,0.15)" : "1px rgba(0,0,0,0.12)",
+          WebkitTextFillColor: theme === "dark" ? "rgba(212,175,55,0.06)" : "rgba(0,0,0,0.08)",
         }}
       >
         {service.number}
@@ -219,7 +266,7 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
                 fontFamily: "var(--font-gotu), serif",
                 fontSize: "2.5rem",
                 color: accentColor,
-                opacity: 0.6,
+                opacity: theme === "dark" ? 0.6 : 0.85,
                 lineHeight: 1,
               }}
             >
@@ -242,82 +289,118 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
             {service.description}
           </p>
 
-          {/* Promise Card */}
+          {/* Promise Card - Redesigned as an Editorial Pull-Quote */}
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="p-8 rounded-sm overflow-hidden relative group"
-            style={{ 
-              backgroundColor: cardBg,
-              border: `1px solid ${cardBorder}`,
-              backdropFilter: "blur(10px)"
-            }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="relative mt-16 pl-8"
           >
-             <div className="absolute top-0 left-0 w-1 h-full" style={{ background: accentColor }} />
+            <div className="absolute top-0 left-0 w-[1px] h-full" style={{ background: accentColor }} />
+            
+            <div className="flex items-center gap-4 mb-4">
+              <span className="font-mono text-[9px] tracking-[0.4em] uppercase" style={{ color: accentColor }}>
+                The Monolith Guarantee
+              </span>
+              <div className="h-px w-8" style={{ background: theme === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.4)" }} />
+            </div>
+
             <p
-              className="font-[var(--font-cinzel)] italic leading-relaxed relative z-10"
-              style={{ fontSize: "1rem", color: subTextColor }}
+              className="font-[var(--font-cinzel)] italic leading-relaxed"
+              style={{ fontSize: "clamp(1.1rem, 1.5vw, 1.3rem)", color: textColor }}
             >
               "{service.promise}"
             </p>
           </motion.div>
         </motion.div>
 
-        {/* LIST COLUMN (Everything Included) */}
+        {/* LIST COLUMN (Architectural Vault Grid) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className={isEven ? "lg:order-2" : "lg:order-1"}
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+           className={isEven ? "lg:order-2" : "lg:order-1"}
         >
+          <div className="mb-8 flex items-center gap-4">
+            <span className="font-mono text-[10px] tracking-[0.4em] uppercase" style={{ color: accentColor }}>
+              Architectural Capabilities
+            </span>
+          </div>
+
+          {/* Structural Grid Container */}
           <div 
-            className="p-10 md:p-14 relative overflow-hidden"
-            style={{ 
-              backgroundColor: cardBg,
-              border: `1px solid ${cardBorder}`,
-              backdropFilter: "blur(20px)"
-            }}
+             className="grid grid-cols-1 sm:grid-cols-2 relative"
+             style={{ 
+               borderTop: `1px solid ${cardBorder}`, 
+               borderLeft: `1px solid ${cardBorder}` 
+             }}
           >
-            {/* Ambient Background Glow for List */}
-            <div 
-              className="absolute -top-1/2 -right-1/2 w-full h-full rounded-full blur-[100px] pointer-events-none"
-              style={{ background: theme === "dark" ? "rgba(212,175,55,0.05)" : "rgba(212,175,55,0.1)" }}
-            />
+            {service.everything.map((item, i) => {
+               // Pad index for mono tag (e.g., 01, 02)
+               const paddedIndex = (i + 1).toString().padStart(2, "0");
+               const cellBorderColor = theme === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.12)";
+               
+               return (
+                 <motion.div
+                   key={item}
+                   initial="rest"
+                   whileHover="hover"
+                   animate="rest"
+                   className="relative flex items-center p-6 group overflow-hidden cursor-default transition-colors duration-300"
+                   style={{ 
+                     borderRight: `1px solid ${cellBorderColor}`,
+                     borderBottom: `1px solid ${cellBorderColor}`,
+                     backgroundColor: "transparent"
+                   }}
+                 >
+                   {/* Hover Background Fill */}
+                   <motion.div 
+                     className="absolute inset-0 pointer-events-none z-0"
+                     variants={{
+                       rest: { opacity: 0, backgroundColor: "transparent" },
+                       hover: { opacity: 1, backgroundColor: theme === "dark" ? "rgba(212,175,55,0.05)" : "rgba(212,175,55,0.15)" }
+                     }}
+                     transition={{ duration: 0.3 }}
+                   />
 
-            <h3
-              className="font-mono tracking-[0.4em] uppercase mb-12 flex items-center gap-4"
-              style={{ fontSize: "0.7rem", color: accentColor }}
-            >
-              <span className="w-8 h-px bg-current" />
-              Everything included
-            </h3>
+                   {/* Sprouting Vertical Gold Bar */}
+                   <motion.div 
+                     className="absolute left-0 bottom-0 w-[2px] pointer-events-none z-10"
+                     style={{ background: accentColor }}
+                     variants={{
+                       rest: { height: "0%" },
+                       hover: { height: "100%" }
+                     }}
+                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                   />
 
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-1">
-              {service.everything.map((item, i) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="flex items-center gap-3 py-4 group cursor-default"
-                  style={{ borderBottom: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)"}` }}
-                >
-                  <motion.div
-                    className="w-1 h-1 rounded-full flex-shrink-0"
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
-                    style={{ background: accentColor }}
-                  />
-                  <span
-                    className="font-cinzel tracking-[0.05em] transition-all duration-300 group-hover:pl-2"
-                    style={{ fontSize: "0.85rem", color: subTextColor }}
-                  >
-                    {item}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+                   <div className="relative z-10 flex gap-4 md:gap-6 items-baseline w-full">
+                     {/* Index Tag */}
+                     <span 
+                       className="font-mono text-[10px] md:text-[11px] tracking-widest select-none flex-shrink-0 min-w-4"
+                       style={{ color: subTextColor, opacity: theme === "dark" ? 1 : 0.9 }}
+                     >
+                       {paddedIndex}
+                     </span>
+                     
+                     {/* Capability Text */}
+                     <motion.span
+                       className="font-cinzel tracking-[0.05em] flex-1"
+                       variants={{
+                         rest: { x: 0, color: subTextColor },
+                         hover: { x: 4, color: textColor }
+                       }}
+                       transition={{ duration: 0.3 }}
+                       style={{ fontSize: "clamp(0.85rem, 1.2vw, 1rem)", lineHeight: 1.4 }}
+                     >
+                       {item}
+                     </motion.span>
+                   </div>
+                 </motion.div>
+               );
+            })}
           </div>
         </motion.div>
       </div>
@@ -332,7 +415,7 @@ export default function ServicesPage() {
       {/* Cinematic Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-screen bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.08),transparent_70%)]" />
-        <div className="ticker dk !opacity-10" aria-hidden="true" style={{ top: "40%" }}>
+        <div className="ticker dk !opacity-10 hidden md:block" aria-hidden="true" style={{ top: "40%" }}>
           <div className="ticker-t">
             <span>SOVEREIGN ARCHITECTURE · PRECISION ENGINEERING · MONOLITHIC DESIGN ·{"\u00A0"}</span>
             <span>SOVEREIGN ARCHITECTURE · PRECISION ENGINEERING · MONOLITHIC DESIGN ·{"\u00A0"}</span>
@@ -345,14 +428,15 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-32">
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16 md:pt-32 pb-32">
+        <ServicesGeometry />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,175,55,0.05) 0%, transparent 70%)" }} />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10"
+          className="relative z-10 -mt-24 md:mt-0"
         >
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -388,14 +472,14 @@ export default function ServicesPage() {
           </motion.p>
         </motion.div>
 
-        {/* Floating Orb Detail */}
+        {/* Floating Scroll Indicator */}
         <motion.div 
            animate={{ 
-             y: [0, -20, 0],
-             opacity: [0.2, 0.5, 0.2]
+             y: [0, 20, 0],
+             opacity: [0.3, 0.8, 0.3]
            }}
-           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-           className="absolute bottom-10 w-[1px] h-24 bg-gradient-to-t from-[#D4AF37] to-transparent opacity-30"
+           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+           className="absolute bottom-20 md:bottom-24 w-[2px] h-20 bg-gradient-to-b from-[#D4AF37] to-transparent z-20 shadow-[0_0_10px_rgba(212,175,55,0.4)]"
         />
       </section>
 

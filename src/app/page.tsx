@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useState, useEffect, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import SacredGeometry from "../components/SacredGeometry";
@@ -628,7 +629,9 @@ export default function MonolithHero() {
                     <div className="sr-content-split">
                       <div className="sr-pitch-card">
                         <p className="sr-desc">{s.desc}</p>
-                        <a href="#contact" className="sr-start-btn">{s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                        <Link href="/contact" className="sr-start-btn">
+                          {s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        </Link>
                       </div>
                       <div>
                         <h4 className="sr-list-header">This package includes:</h4>
@@ -651,7 +654,9 @@ export default function MonolithHero() {
                 <div className="sr-content-split">
                   <div className="sr-pitch-card">
                     <p className="sr-desc">{s.desc}</p>
-                    <a href="#contact" className="sr-start-btn">{s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                    <Link href="/contact" className="sr-start-btn">
+                      {s.btnText} <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </Link>
                   </div>
                   <div>
                     <h4 className="sr-list-header">This package includes:</h4>
@@ -834,8 +839,8 @@ export default function MonolithHero() {
           <div className="cta-rule"></div>
           <p className="cta-body">Tell us about your business. We'll tell you exactly what we can take off your plate — and how we'd make every single piece of it extraordinary.</p>
           <div className="cta-btns">
-            <a href="/contact" className="btn-blk"><span>Begin the Conversation</span></a>
-            <a href="/services" className="btn-ghost">See Our Services</a>
+            <Link href="/contact" className="btn-blk"><span>Begin the Conversation</span></Link>
+            <Link href="/services" className="btn-ghost">See Our Services</Link>
           </div>
           <p className="cta-footer-deva">कर्म ही धर्म है — The fruit of your karma, delivered.</p>
         </div>
