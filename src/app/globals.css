@@ -46,5 +46,21 @@ body {
 .glass-monolith {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* ── iOS Safari Compatibility ────────────────────── */
+/* Force GPU compositing for elements with opacity animations */
+@supports (-webkit-touch-callout: none) {
+  /* iOS-specific: boost subtle borders/glows that Safari drops */
+  .glass-monolith {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  /* iOS-specific: The SVG feTurbulence filter often renders as a solid black square on iOS Safari. 
+     We hide it completely to reveal the content underneath. */
+  .noise-overlay {
+    display: none !important;
+  }
 }
