@@ -50,17 +50,17 @@ function HeroGeometry() {
   const opacity = useTransform(scrollY, [0, 500], [0.4, 0]);
 
   return (
-    <motion.div 
+    <motion.div
       style={{ rotate, scale, opacity }}
       className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
     >
       <svg viewBox="0 0 1000 1000" className="w-[80vh] h-[80vh]">
         <circle cx="500" cy="500" r="480" fill="none" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5" />
         <circle cx="500" cy="500" r="300" fill="none" stroke="#D4AF37" strokeWidth="0.5" strokeOpacity="0.4" />
-        <motion.polygon 
-          points="500,100 900,800 100,800" 
-          fill="none" 
-          stroke="#D4AF37" 
+        <motion.polygon
+          points="500,100 900,800 100,800"
+          fill="none"
+          stroke="#D4AF37"
           strokeWidth="0.8"
           strokeOpacity="0.6"
           animate={{ strokeDasharray: ["0 100", "100 0"] }}
@@ -89,9 +89,9 @@ function PhilosophyPillar({ block, index }: { block: typeof PHILOSOPHY[0]; index
   const subTextColor = isDark ? "rgba(255,255,255,0.7)" : "rgba(26,26,26,0.8)";
 
   return (
-    <section 
+    <section
       ref={ref}
-      className="relative w-full py-40 md:py-60 px-6 overflow-hidden transition-colors duration-1000"
+      className="relative w-full py-20 lg:py-50 md:py-30 px-6 overflow-hidden transition-colors duration-1000"
       style={{ backgroundColor: bgColor }}
     >
       <motion.div
@@ -113,16 +113,16 @@ function PhilosophyPillar({ block, index }: { block: typeof PHILOSOPHY[0]; index
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-[auto_1fr] gap-12 md:gap-24">
-           {/* Marginalia Annotation */}
-           <motion.div 
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 0.3 }}
-             className="hidden md:block pt-4"
-           >
-             <p className="text-[10px] font-mono uppercase tracking-[0.5em] vertical-text" style={{ color: textColor }}>
-                {block.annotation}
-             </p>
-           </motion.div>
+          {/* Marginalia Annotation */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 0.3 }}
+            className="hidden md:block pt-4"
+          >
+            <p className="text-[10px] font-mono uppercase tracking-[0.5em] vertical-text" style={{ color: textColor }}>
+              {block.annotation}
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
@@ -138,7 +138,7 @@ function PhilosophyPillar({ block, index }: { block: typeof PHILOSOPHY[0]; index
             >
               Origin Pillar // {block.number}
             </motion.p>
-            
+
             <h3 className="font-[var(--font-cinzel)] font-black mb-8 leading-[1.1] tracking-tight" style={{ fontSize: "clamp(2.2rem, 4.5vw, 4rem)", color: textColor }}>
               {block.heading}
             </h3>
@@ -218,16 +218,35 @@ export default function AboutPage() {
         ))}
       </div>
 
-      <section className="relative z-10 w-full py-40 md:py-60 px-6 bg-[#010101]">
+      {/* OBSIDIAN RIFT DIVIDER */}
+      <div className="relative w-full py-12 md:py-24 flex items-center justify-center z-20 pointer-events-none bg-[#010101]">
+        <div className="w-full max-w-4xl h-[4px] relative flex flex-col justify-between px-8">
+          {/* Top Edge (White/Silver) */}
+          <div className="w-full h-px opacity-30" style={{ background: "linear-gradient(90deg, transparent, #ffffff, transparent)" }} />
+          
+          {/* Glowing Karmic Core (Gold) */}
+          <motion.div 
+            animate={{ opacity: [0.3, 0.8, 0.3], scaleX: [0.95, 1.05, 0.95] }} 
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-[16px] blur-[16px]" 
+            style={{ background: "linear-gradient(90deg, transparent, #D4AF37, transparent)", rotate: "0.01deg" }} 
+          />
+          
+          {/* Bottom Edge (Gold) */}
+          <div className="w-full h-px opacity-50" style={{ background: "linear-gradient(90deg, transparent, #D4AF37, transparent)" }} />
+        </div>
+      </div>
+
+      <section className="relative z-10 w-full py-20 lg:py-50 md:py-30 px-6 bg-[#010101]">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-20">
           <svg className="w-full h-full" viewBox="0 0 1440 1000">
-             <motion.path d="M0,200 L1440,800 M1440,200 L0,800 M720,0 L720,1000 M0,500 L1440,500" stroke="#D4AF37" strokeWidth="1.5" fill="none" animate={{ pathLength: [0, 1, 0], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} />
+            <motion.path d="M0,200 L1440,800 M1440,200 L0,800 M720,0 L720,1000 M0,500 L1440,500" stroke="#D4AF37" strokeWidth="1.5" fill="none" animate={{ pathLength: [0, 1, 0], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} />
           </svg>
         </div>
         <div className="max-w-7xl mx-auto text-center mb-32 relative z-10">
           <motion.p initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} className="text-[10px] md:text-[12px] font-mono tracking-[1.5em] uppercase mb-10 text-[#D4AF37] font-bold">The Monolith Credo</motion.p>
           <h2 className="font-[var(--font-cinzel)] font-black text-white text-5xl md:text-8xl tracking-tight leading-[1]">
-             What We <span className="italic font-medium text-[#D4AF37]">Believe.</span>
+            What We <span className="italic font-medium text-[#D4AF37]">Believe.</span>
           </h2>
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 relative z-10">
@@ -240,7 +259,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative z-10 w-full py-48 px-6 flex flex-col items-center text-center bg-[#010101]">
+      <section className="relative z-10 w-full py-20 lg:py-50 md:py-30 px-6 flex flex-col items-center text-center bg-[#010101]">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,175,55,0.08) 0%, transparent 60%)" }} />
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} viewport={{ once: true }} className="relative z-10">
           <p className="text-[10px] md:text-[12px] font-mono tracking-[1.2em] uppercase mb-12 text-[#D4AF37] font-bold">Initiate Resonance</p>
