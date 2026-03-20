@@ -2,12 +2,13 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 // ─── Animated Nav Link ────────────────────────────────────────────────────────
-function AnimatedNavLink({ href, text, onClick }: { href: string; text: string; onClick?: () => void }) {
-  const baseColor = "#e6e3dd"; // Universal off-white
-  const hoverColor = "#D4AF37"; // Universal Gold
+function AnimatedNavLink({ href, text, onClick, isActive }: { href: string; text: string; onClick?: () => void; isActive?: boolean }) {
+  const baseColor = isActive ? "#D4AF37" : "#e6e3dd";
+  const hoverColor = "#D4AF37";
   const underlineColor = "#D4AF37";
 
   return (
@@ -42,7 +43,7 @@ function AnimatedNavLink({ href, text, onClick }: { href: string; text: string; 
         <motion.div
           className="absolute bottom-0 left-0 w-full h-[1px]"
           style={{ backgroundColor: underlineColor }}
-          variants={{ rest: { scaleX: 0, transformOrigin: "right" }, hover: { scaleX: 1, transformOrigin: "left" } }}
+          variants={{ rest: { scaleX: isActive ? 1 : 0, transformOrigin: "right" }, hover: { scaleX: 1, transformOrigin: "left" } }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         />
       </Link>
@@ -54,6 +55,7 @@ function AnimatedNavLink({ href, text, onClick }: { href: string; text: string; 
 export default function SovereignHeader() {
   const [visible, setVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
@@ -112,9 +114,9 @@ export default function SovereignHeader() {
           {/* RIGHT: Nav + CTA (Desktop) */}
           <div className="hidden md:flex items-center gap-10">
             <nav className="flex items-center gap-10">
-              <AnimatedNavLink href="/services" text="Services" />
-              <AnimatedNavLink href="/about" text="About" />
-              <AnimatedNavLink href="/contact" text="Contact" />
+              <AnimatedNavLink href="/services" text="Services" isActive={pathname === "/services"} />
+              <AnimatedNavLink href="/about" text="About" isActive={pathname === "/about"} />
+              <AnimatedNavLink href="/contact" text="Contact" isActive={pathname === "/contact"} />
             </nav>
 
             <motion.div whileHover="hover" initial="rest" animate="rest">
@@ -180,9 +182,9 @@ export default function SovereignHeader() {
             </div>
 
             <nav className="flex flex-col items-center gap-12 relative z-10">
-              <AnimatedNavLink href="/services" text="Services" onClick={() => setIsMobileMenuOpen(false)} />
-              <AnimatedNavLink href="/about" text="About" onClick={() => setIsMobileMenuOpen(false)} />
-              <AnimatedNavLink href="/contact" text="Contact" onClick={() => setIsMobileMenuOpen(false)} />
+              <AnimatedNavLink href="/services" text="Services" onClick={() => setIsMobileMenuOpen(false)} isActive={pathname === "/services"} />
+              <AnimatedNavLink href="/about" text="About" onClick={() => setIsMobileMenuOpen(false)} isActive={pathname === "/about"} />
+              <AnimatedNavLink href="/contact" text="Contact" onClick={() => setIsMobileMenuOpen(false)} isActive={pathname === "/contact"} />
               
               <Link
                 href="/contact"

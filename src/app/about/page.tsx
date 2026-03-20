@@ -54,7 +54,7 @@ function HeroGeometry() {
       style={{ rotate, scale, opacity }}
       className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
     >
-      <svg viewBox="0 0 1000 1000" className="w-[110vh] h-[110vh]">
+      <svg viewBox="0 0 1000 1000" className="w-[80vh] h-[80vh]">
         <circle cx="500" cy="500" r="480" fill="none" stroke="#D4AF37" strokeWidth="0.8" strokeOpacity="0.5" />
         <circle cx="500" cy="500" r="300" fill="none" stroke="#D4AF37" strokeWidth="0.5" strokeOpacity="0.4" />
         <motion.polygon 
@@ -191,15 +191,15 @@ function BeliefTablet({ belief, index, className }: { belief: string; index: num
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen bg-[#010101] overflow-x-hidden pt-20">
+    <main className="relative min-h-screen bg-[#010101] overflow-x-hidden">
       <div className="fixed inset-0 z-[50] pointer-events-none opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: "repeat" }} />
 
-      <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-40">
+      <section className="relative w-full h-[100dvh] min-h-[600px] flex flex-col items-center justify-center text-center px-6">
         <HeroGeometry />
         <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.06)_0%,transparent_70%)]" />
         <div className="relative z-10 max-w-5xl mx-auto">
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-[10px] md:text-[11px] font-mono tracking-[1em] uppercase mb-12 text-[#D4AF37] font-bold">The Monolith Origin</motion.p>
-          <h1 className="font-[var(--font-cinzel)] font-black text-white leading-[1] mb-12 tracking-tighter" style={{ fontSize: "clamp(3.5rem, 10vw, 8rem)" }}>
+          <h1 className="font-[var(--font-cinzel)] font-black text-white leading-[1] mb-12 tracking-tighter" style={{ fontSize: "clamp(2.8rem, 8vw, 6rem)" }}>
             BORN FROM <br />
             <motion.span initial={{ opacity: 0, filter: "blur(10px)" }} animate={{ opacity: 1, filter: "none" }} transition={{ duration: 2, delay: 0.8 }} style={{ color: "#D4AF37", textShadow: "0 0 50px rgba(212,175,55,0.3)" }}>KARMA.</motion.span><br />
             BUILT FOR <motion.span initial={{ opacity: 0, filter: "blur(10px)" }} animate={{ opacity: 1, filter: "none" }} transition={{ duration: 2, delay: 1.2 }} className="ml-4" style={{ textShadow: "0 0 40px rgba(255,255,255,0.15)" }}>YOURS.</motion.span>
