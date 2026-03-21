@@ -620,7 +620,12 @@ export default function MonolithHero() {
                 <div className="sr-face">
                   <span className="sr-num">{s.num}</span>
                   <span className="sr-name">{s.name}</span>
-                  <div className="sr-arr">↗</div>
+                  <div className="sr-arr">
+                    <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square">
+                      <line x1="6" y1="18" x2="18" y2="6" />
+                      <polyline points="8 6 18 6 18 16" />
+                    </svg>
+                  </div>
                 </div>
                 {/* Mobile Accordion Reveal */}
                 <div className={`sr-reveal mobile-only ${activeService === i ? 'open' : ''}`}>

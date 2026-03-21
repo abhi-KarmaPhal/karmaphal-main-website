@@ -209,7 +209,21 @@ export default function AboutPage() {
             The name means what it says. Your actions have results. We are the architecture between the two.
           </motion.p>
         </div>
-        <motion.div animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }} transition={{ duration: 4, repeat: Infinity }} className="absolute bottom-10 w-px h-16 bg-gradient-to-b from-[#D4AF37] to-transparent z-20" />
+        {/* SCROLL INDICATOR */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5, duration: 1 }}
+          className="absolute bottom-10 z-20 flex flex-col items-center gap-2 left-1/2 -translate-x-1/2"
+        >
+          <span className="text-[10px] md:text-xs font-[var(--font-mono)] text-[#D4AF37] tracking-[0.4em] uppercase" style={{ textShadow: "0 0 10px rgba(212,175,55,0.4)" }}>Scroll</span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-[1px] h-10 bg-gradient-to-b from-[#D4AF37] to-transparent"
+            style={{ boxShadow: "0 0 6px rgba(212,175,55,0.3)" }}
+          />
+        </motion.div>
       </section>
 
       <div className="relative z-10">
