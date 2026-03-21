@@ -10,6 +10,7 @@ import MagneticButton from "../components/MagneticButton";
 import AmbientSanskrit from "../components/AmbientSanskrit";
 import DivineEmbers from "../components/DivineEmbers";
 import AmbientParticles from "../components/AmbientParticles";
+import { ServiceVisual } from "../components/ServiceVisuals";
 import { useScrollAnimations } from "../hooks/useScrollAnimations";
 import "./v12-sections.css";
 
@@ -630,7 +631,7 @@ export default function MonolithHero() {
                 {/* Mobile Accordion Reveal */}
                 <div className={`sr-reveal mobile-only ${activeService === i ? 'open' : ''}`}>
                   <div className="sr-reveal-inner">
-                    <div className={`sr-hero-visual ${s.meshClass}`}></div>
+                    <div className={`sr-hero-visual ${s.meshClass}`}><ServiceVisual meshClass={s.meshClass} /></div>
                     <div className="sr-content-split">
                       <div className="sr-pitch-card">
                         <p className="sr-desc">{s.desc}</p>
@@ -655,7 +656,7 @@ export default function MonolithHero() {
           <div className="svc-stage desktop-only">
             {SERVICES_DATA.map((s, i) => (
               <div key={i} className={`sr-reveal stage-reveal ${activeService === i ? 'active' : ''}`}>
-                <div className={`sr-hero-visual ${s.meshClass}`}></div>
+                <div className={`sr-hero-visual ${s.meshClass}`}><ServiceVisual meshClass={s.meshClass} /></div>
                 <div className="sr-content-split">
                   <div className="sr-pitch-card">
                     <p className="sr-desc">{s.desc}</p>
