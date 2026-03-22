@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 
-const noop = () => { };
+import { BrandIcon, WebIcon, ContentIcon, AIIcon } from "../../components/DisciplineIcons";
 
 /* ═══════════════════════════════════════════
    SERVICE DATA
@@ -12,7 +12,7 @@ const noop = () => { };
 const SERVICES = [
   {
     number: "01",
-    devanagari: "ब्रांड",
+    Icon: BrandIcon,
     title: "Brand Identity",
     tagline: "The soul of your business, made visible.",
     description: "Most businesses are forgettable — not because their product is bad, but because their brand doesn't do justice to what they've built. We fix that. From the first mark to a complete, living identity system that works everywhere.",
@@ -35,7 +35,7 @@ const SERVICES = [
   },
   {
     number: "02",
-    devanagari: "वेब",
+    Icon: WebIcon,
     title: "Websites & Apps",
     tagline: "Your most powerful salesperson. Working 24/7.",
     description: "A website is not a brochure. It's your best salesperson — one that works while you sleep, never has a bad day, and makes a first impression in under 3 seconds. We build websites that earn their place.",
@@ -58,7 +58,7 @@ const SERVICES = [
   },
   {
     number: "03",
-    devanagari: "सृजन",
+    Icon: ContentIcon,
     title: "Creative Content",
     tagline: "Consistent. Beautiful. Always on brand.",
     description: "Your brand isn't just your logo — it's every post, every banner, every presentation, every email. We keep it all consistent, beautiful, and done. So you never have to think about it again.",
@@ -81,7 +81,7 @@ const SERVICES = [
   },
   {
     number: "04",
-    devanagari: "बुद्धि",
+    Icon: AIIcon,
     title: "AI & Systems",
     tagline: "The future, built into your business today.",
     description: "The businesses that win the next decade aren't the ones that work harder — they're the ones that build smarter. AI tools, automations, and decentralized systems that give you an unfair advantage.",
@@ -326,19 +326,9 @@ function ServiceSection({ service, index }: { service: typeof SERVICES[0]; index
             {service.title}
           </h2>
 
-          {/* Devanagari accent */}
+          {/* Icon separator (replaces devanagari) */}
           <div className="flex items-center gap-4 mb-8">
-            <span
-              style={{
-                fontFamily: "var(--font-gotu), serif",
-                fontSize: "2.8rem",
-                color: accentColor,
-                opacity: theme === "dark" ? 0.5 : 0.7,
-                lineHeight: 1,
-              }}
-            >
-              {service.devanagari}
-            </span>
+            <service.Icon className="w-8 h-8 opacity-70" style={{ color: accentColor }} />
             <div className="h-px flex-grow" style={{ background: theme === "dark" ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)" }} />
           </div>
 

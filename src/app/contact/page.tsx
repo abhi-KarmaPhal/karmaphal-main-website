@@ -71,14 +71,16 @@ const AnimatedLink = ({
   );
 };
 
+import { BrandIcon, WebIcon, ContentIcon, AIIcon, DeckIcon, InfinityIcon } from "../../components/DisciplineIcons";
+
 /* ── SERVICE DEFINITIONS ── */
 const SERVICES = [
-  { name: "Brand Identity", sym: "चिह्न" },
-  { name: "Website / App", sym: "जाल" },
-  { name: "Social Media & Content", sym: "वाणी" },
-  { name: "Pitch Decks & Presentations", sym: "प्रस्तुति" },
-  { name: "AI & Automation", sym: "यंत्र" },
-  { name: "Everything — Full Team", sym: "सर्व" },
+  { name: "Brand Identity", Icon: BrandIcon },
+  { name: "Website / App", Icon: WebIcon },
+  { name: "Social Media & Content", Icon: ContentIcon },
+  { name: "Pitch Decks & Presentations", Icon: DeckIcon },
+  { name: "AI & Automation", Icon: AIIcon },
+  { name: "Everything — Full Team", Icon: InfinityIcon },
 ];
 
 /* ── TRANSMISSION PULSE — Unique to contact page ── */
@@ -287,7 +289,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 1.5 }}
           >
             <div className="ritual-detail-col">
-              <span className="ritual-detail-label">Direct Line</span>
+               <span className="ritual-detail-label">Direct Line</span>
               <AnimatedLink
                 href="mailto:abhi@karmaphal.in"
                 text="abhi@karmaphal.in"
@@ -436,7 +438,7 @@ export default function ContactPage() {
                         }}
                         viewport={{ once: true }}
                       >
-                        <span className="ritual-card-sym">{s.sym}</span>
+                        <s.Icon className="ritual-card-sym" />
                         <span className="ritual-card-name">{s.name}</span>
                       </motion.button>
                     );
