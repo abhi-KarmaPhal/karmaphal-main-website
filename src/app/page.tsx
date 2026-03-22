@@ -754,6 +754,7 @@ export default function MonolithHero() {
       </section>
 
       <div className="sdiv"></div>
+      <div className="ticker lt" aria-hidden="true"><div className="ticker-t"><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span><span>ONE TEAM · EVERY DISCIPLINE · ALWAYS ON · ALWAYS YOURS · कर्म ही धर्म है ·{"\u00A0"}</span></div></div>
 
       {/*  ══ STUDIO ══════════════════════════════════════════  */}
       <section
@@ -831,7 +832,10 @@ export default function MonolithHero() {
         </div>
       </section>
 
+      <div id="cd"></div><div id="cr"></div><div id="noise"></div>
       <div className="sdiv"></div>
+      <div className="ticker dk" aria-hidden="true"><div className="ticker-t"><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span><span>PRIVATE DIGITAL STUDIO · BRANDS · WEBSITES · APPS · AI · कर्म ही धर्म है ·{"\u00A0"}</span></div></div>
+
 
       {/*  ══ CTA ══════════════════════════════════════════════  */}
       <section id="cta" data-header-theme="dark">
